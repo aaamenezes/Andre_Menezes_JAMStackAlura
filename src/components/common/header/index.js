@@ -1,11 +1,20 @@
-import styled from 'styled-components'
+import Container from '../container'
+import Icon from '../../common/icon'
+import theme from '../../../theme'
 
-const Header = styled.header`
-  display: flex;
-  align-items: center;
-  height: 60px;
-  box-shadow: 0 0 30px -20px black;
-  background-color: ${ ({theme}) => theme.color.support.white };
-`
+function HeaderWrapper() {
+  return (
+    <Container
+      tag='header'
+      display='flex'
+      alignItems='center'
+      height='60px'
+      boxShadow='0 0 30px -20px black'
+      backgroundColor={theme.color.support.white}
+    >
+      <Icon type='bars' />
+    </Container>
+  )
+}
 
-export default Header
+export default HeaderWrapper

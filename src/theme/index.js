@@ -24,10 +24,17 @@ const fontSize = {
   subText: '12px'
 }
 
+const transition = {
+  slow: '1.3s',
+  medium: '.7s',
+  fast: '.3s'
+}
+
 const theme = {
   color,
   fontFamily,
-  fontSize
+  fontSize,
+  transition
 }
 
 export default theme

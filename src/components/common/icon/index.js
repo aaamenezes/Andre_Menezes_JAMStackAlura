@@ -1,13 +1,26 @@
+import styled from "styled-components"
+
+const Icon = styled.i`
+  font-size: ${ ({theme}) => theme.fontSize.superText };
+  color: ${ ({theme}) => theme.color.primary.normal };
+  transition: ${ ({theme}) => theme.transition.medium };
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.8)
+  }
+`
+
 function IconWrapper(props) {
   switch(props.type) {
     case 'bars':
-      return <i class="fas fa-bars"></i>
+      return <Icon className="fas fa-bars" />
     case 'github':
-      return <i class="fab fa-github"></i>
+      return <Icon className="fab fa-github" />
     case 'twitter':
-      return <i class="fab fa-twitter"></i>
+      return <Icon className="fab fa-twitter" />
     case 'medium':
-      return <i class="fab fa-medium"></i>
+      return <Icon className="fab fa-medium" />
   }
 }
 
