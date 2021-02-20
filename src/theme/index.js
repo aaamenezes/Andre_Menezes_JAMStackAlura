@@ -1,3 +1,5 @@
+import { ContextConsumer } from "react-is"
+
 const color = {
   primary: {
     dark: '#B2343A',
@@ -30,11 +32,18 @@ const transition = {
   fast: '.3s'
 }
 
+const backGroundTransparent = {
+  weak: '44',
+  medium: '88',
+  strong: 'CC'
+}
+
 const theme = {
   color,
   fontFamily,
   fontSize,
-  transition
+  transition,
+  backGroundTransparent
 }
 
 export default theme

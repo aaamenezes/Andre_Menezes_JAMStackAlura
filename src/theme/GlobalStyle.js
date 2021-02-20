@@ -17,10 +17,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #__next {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     min-height: 100vh;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  img {
+    max-width: 100%;
   }
 `
 

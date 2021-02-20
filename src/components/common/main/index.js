@@ -1,13 +1,15 @@
 import Container from '../container'
 
-function MainWrapper({children}) {
+function Main({children, ...props}) {
   return (
     <Container
       tag='main'
+      minHeight='calc(100vh - 60px - 60px)'
+      {...props}
     >
       {children}
     </Container>
   )
 }
 
-export default MainWrapper
+export default Main

@@ -2,29 +2,35 @@ import styled from 'styled-components'
 
 import propToStyle from '../../../utils/propToStyle'
 
-const Container = styled.div`
-  width: clamp(300px, 100%, 2000px);
+const ContainerStyled = styled.div`
+  width: clamp(200px, 100%, 2000px);
   padding-left: 10%;
   padding-right: 10%;
   margin-left: auto;
   margin-right: auto;
+  ${propToStyle('position')};
   ${propToStyle('display')};
   ${propToStyle('justifyContent')};
   ${propToStyle('alignItems')};
   ${propToStyle('height')};
+  ${propToStyle('minHeight')};
+  ${propToStyle('padding')};
+  ${propToStyle('paddingBottom')};
+  ${propToStyle('marginTop')};
+  ${propToStyle('lineHeight')};
   ${propToStyle('backgroundColor')};
   ${propToStyle('boxShadow')};
 `
 
-function ContainerWrapper({tag, children, ...props}) {
+function Container({tag, children, ...props}) {
   return (
-    <Container
+    <ContainerStyled
       as={tag}
       {...props}
     >
       {children}
-    </Container>
+    </ContainerStyled>
   )
 }
 
-export default ContainerWrapper
+export default Container
