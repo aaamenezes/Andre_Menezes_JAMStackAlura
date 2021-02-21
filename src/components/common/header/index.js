@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router'
+
 import Container from '../container'
 import Icon from '../../common/icon'
 import theme from '../../../theme'
@@ -10,7 +12,7 @@ const LinksList = styled.ul`
   align-items: center;
 `
 
-function Header({setCurrentPage, home, projects}) {
+function Header() {
 
   const navbarLinksList = [
     { title: 'Home', url: '/', },
@@ -19,9 +21,16 @@ function Header({setCurrentPage, home, projects}) {
   ]
 
   const navbarLinks = navbarLinksList.map(page => {
+
+    const router = useRouter()
+    console.log(router)
+
     return (
       <li key={page.url}>
-        <Button url={page.url} variant='secondary'>
+        <Button
+          url={page.url}
+          variant={router.pathname === page.url ? 'primary' : 'secondary'}
+        >
           {page.title}
         </Button>
       </li>

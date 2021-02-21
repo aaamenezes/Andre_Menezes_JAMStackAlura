@@ -9,12 +9,12 @@ const ButtonStyled = styled.a`
   cursor: pointer;
 
   ${ ({variant, theme}) => {
-    if (variant == 'primary') {
+    if (variant === 'primary') {
       return {
         color: theme.color.support.white,
         backgroundColor: theme.color.primary.normal
       }
-    } else if (variant == 'secondary') {
+    } else if (variant === 'secondary') {
       return {
         color: theme.color.support.black,
         backgroundColor: theme.color.support.white
