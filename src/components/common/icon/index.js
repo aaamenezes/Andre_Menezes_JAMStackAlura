@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Icon = styled.i`
-  font-size: ${ ({theme}) => theme.fontSize.superText };
+  font-size: ${ ({theme}) => theme.fontSize.subTitle };
   color: ${ ({theme}) => theme.color.primary.normal };
   transition: ${ ({theme}) => theme.transition.medium };
   cursor: pointer;

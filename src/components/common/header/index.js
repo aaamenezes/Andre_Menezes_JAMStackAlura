@@ -48,6 +48,12 @@ function Header(props) {
     >
       <Container
         tag='nav'
+        padding={{
+          md: '0',
+        }}
+        width={{
+          md: 'clamp(200px, 100%, 500px);'
+        }}
       >
         <LinksList>
           {navbarLinks}

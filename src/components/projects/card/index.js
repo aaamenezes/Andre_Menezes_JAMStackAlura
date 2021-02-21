@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 import Container from '../../common/container'
+import SubTitle from '../../text/subtitle'
 
 const CardStyled = styled.article`
   margin: clamp(30px, 10%, 60px) 0;
@@ -36,7 +37,9 @@ function Card({cover, title, text, url, highLight}) {
         <a>
           <img src={cover} />
           <CardStyled.TextWrapper highLight={highLight}>
-            <h2>{title}</h2>
+            <SubTitle margin='0'>
+              {title}
+            </SubTitle>
             {highLight && <p>{text}</p>}
           </CardStyled.TextWrapper>
         </a>

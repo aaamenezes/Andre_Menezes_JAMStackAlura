@@ -15,10 +15,20 @@ export default function Home() {
       <Main padding='0'>
         <Hero />
         <Container tag='section'>
-          <Title>
+          <Title
+            textAlign={{
+              xs: 'center',
+              md: 'right'
+            }}
+          >
             PortFront
           </Title>
-          <SubTitle>
+          <SubTitle
+            textAlign={{
+              xs: 'center',
+              md: 'right'
+            }}
+          >
             André de Menezes
           </SubTitle>
         </Container>

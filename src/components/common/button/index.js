@@ -6,6 +6,7 @@ const ButtonStyled = styled.a`
   border: 1px solid ${ ({theme}) => theme.color.primary.normal };
   border-radius: ${ ({theme}) => theme.borderRadius };
   font-weight: bold;
+  transition: ${ ({theme}) => theme.transition.fast };
   cursor: pointer;
 
   ${ ({variant, theme}) => {
@@ -21,6 +22,10 @@ const ButtonStyled = styled.a`
       }
     }
   }};
+
+  &:hover {
+    opacity: ${ ({theme}) => theme.opacity.medium };
+  }
 `
 
 function Button({variant, children, url}) {

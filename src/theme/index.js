@@ -44,6 +44,20 @@ const boxShadow = {
 
 const borderRadius = '5px'
 
+const breakpoints = {
+  xs: '0',
+  sm: '576',
+  md: '768',
+  lg: '992',
+  xl: '1200'
+}
+
+const opacity = {
+  transparent: '.4',
+  medium: '.6',
+  light: '.9'
+}
+
 const theme = {
   color,
   fontFamily,
@@ -51,7 +65,9 @@ const theme = {
   transition,
   backGroundTransparent,
   boxShadow,
-  borderRadius
+  borderRadius,
+  breakpoints,
+  opacity
 }
 
 export default theme

@@ -1,25 +1,47 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import breakpointsMedia from '../../../utils/breakpointsMedia'
 
 const AvatarStyled = styled.div`
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 100%;
-  left: 50%;
   width: clamp(100px, 50%, 250px);
 
+  ${breakpointsMedia({
+    xs: css`
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 100%;
+      left: 50%;
+    `,
+    md: css`
+      transform: translate(0, -50%);
+      top: initial;
+      left: 10%;
+    `
+  })}
+
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     border-radius: 50%;
-    object-fit: cover;
+
+    ${breakpointsMedia({
+      xs: css`
+        position: absolute;
+        top: 0;
+      `,
+      md: css`
+        position: initial;
+      `
+    })}
   }
 `
 
 const Crop = styled.div`
-  padding-top: 100%;
+  ${breakpointsMedia({
+    xs: css`
+      padding-top: 100%;
+    `,
+    md: css`
+      padding-top: initial;
+    `
+  })}
 `
 
 function Avatar({imageUrl}) {

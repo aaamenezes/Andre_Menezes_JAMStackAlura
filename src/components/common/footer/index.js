@@ -11,6 +11,12 @@ function FooterWrapper() {
       justifyContent='space-evenly'
       alignItems='center'
       height='60px'
+      width={{
+        md: 'clamp(200px, 100%, 500px);'
+      }}
+      padding={{
+        md: '0',
+      }}
       backgroundColor='transparent'
     >
       <Link href='https://github.com/aaamenezes'>
