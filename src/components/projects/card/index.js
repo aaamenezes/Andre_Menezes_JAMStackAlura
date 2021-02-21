@@ -1,34 +1,44 @@
 import Link from 'next/link'
 import styled from 'styled-components'
+
 import Container from '../../common/container'
 
 const CardStyled = styled.article`
-  margin: 20% 0;
+  margin: clamp(30px, 10%, 60px) 0;
   background-color: ${ ({theme}) => theme.color.support.white };
   box-shadow: ${ ({theme}) => theme.boxShadow.low };
   transition: ${ ({theme}) => theme.transition.medium };
 
-  &:hover { box-shadow: ${ ({theme}) => theme.boxShadow.high }; }
+  &:hover {
+    box-shadow: ${ ({theme}) => theme.boxShadow.high };
+  }
 
   a {
-    display: ${ (props) => console.log(props) };
+    display: ${ ({highLight}) => highLight ? 'block' : 'flex' };
 
     img {
-      width: 50%;
+      width: ${ ({highLight}) => highLight ? '100%' : '50%' };
     }
   }
 `
 
+CardStyled.TextWrapper = styled(Container)`
+  display: ${ ({highLight}) => !highLight ? 'flex' : 'block' };
+  align-items: ${ ({highLight}) => !highLight ? 'center' : false };
+  width: ${ ({highLight}) => !highLight ? '50%' : false };
+  padding: 5%;
+`
+
 function Card({cover, title, text, url, highLight}) {
   return (
-    <CardStyled>
+    <CardStyled highLight={highLight}>
       <Link href={url}>
         <a>
           <img src={cover} />
-          <Container width='50%' padding='5%'>
+          <CardStyled.TextWrapper highLight={highLight}>
             <h2>{title}</h2>
-            {highLight ? <p>{text}</p> : false}
-          </Container>
+            {highLight && <p>{text}</p>}
+          </CardStyled.TextWrapper>
         </a>
       </Link>
     </CardStyled>

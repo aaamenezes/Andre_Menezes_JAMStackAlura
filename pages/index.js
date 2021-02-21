@@ -8,6 +8,7 @@ import Title from '../src/components/text/title'
 import SubTitle from '../src/components/text/subtitle'
 import Footer from '../src/components/common/footer'
 import Card from '../src/components/projects/card'
+import CardWrapper from '../src/components/projects/cardWrapper'
 
 export default function Home() {
   return (
@@ -27,25 +28,7 @@ export default function Home() {
           <h1>Projetos</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab aperiam non libero. Laborum libero iste mollitia nisi ducimus sequi quas dolorum cupiditate quibusdam, tenetur veritatis amet obcaecati fugit animi minima.</p>
         </Container>
-        <Container tag='section'>
-          <Card
-            cover='/images/code.jpg'
-            title='Projeto 1'
-            text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab aperiam non libero.'
-            url='https://www.google.com/'
-            highLight
-          />
-          <Card
-            cover='/images/code.jpg'
-            title='Projeto 1'
-            url='https://www.google.com/'
-          />
-          <Card
-            cover='/images/code.jpg'
-            title='Projeto 1'
-            url='https://www.google.com/'
-          />
-        </Container>
+        <CardWrapper />
       </Main>
       <Footer />
     </React.Fragment>

@@ -1,5 +1,3 @@
-import { ContextConsumer } from "react-is"
-
 const color = {
   primary: {
     dark: '#B2343A',
@@ -44,13 +42,16 @@ const boxShadow = {
   high: '0 0 40px -10px black'
 }
 
+const borderRadius = '5px'
+
 const theme = {
   color,
   fontFamily,
   fontSize,
   transition,
   backGroundTransparent,
-  boxShadow
+  boxShadow,
+  borderRadius
 }
 
 export default theme

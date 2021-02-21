@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    margin: 15% 0 10%;
+    margin: clamp(10px, 5%, 30px) 0 clamp(20px, 10%, 60px);
     font-size: ${ ({theme}) => theme.fontSize.title };
     text-align: center;
   }
@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     color: currentColor;
+    text-decoration: none;
   }
 `
 
