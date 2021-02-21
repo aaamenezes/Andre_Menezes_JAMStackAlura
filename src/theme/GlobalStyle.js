@@ -41,6 +41,16 @@ const GlobalStyle = createGlobalStyle`
     color: currentColor;
     text-decoration: none;
   }
+
+  button {
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  ul, li {
+    list-style: none;
+  }
 `
 
 export default GlobalStyle
