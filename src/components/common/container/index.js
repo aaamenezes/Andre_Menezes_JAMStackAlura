@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import propToStyle from '../../../utils/propToStyle'
 
 const ContainerStyled = styled.div`
-  width: clamp(200px, 100%, 2000px);
+  width: clamp(200px, 100%, 1200px);
   padding-left: 10%;
   padding-right: 10%;
   margin-left: auto;
@@ -13,6 +13,7 @@ const ContainerStyled = styled.div`
   ${propToStyle('justifyContent')};
   ${propToStyle('alignItems')};
   ${propToStyle('height')};
+  ${propToStyle('width')};
   ${propToStyle('minHeight')};
   ${propToStyle('padding')};
   ${propToStyle('paddingBottom')};

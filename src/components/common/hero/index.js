@@ -8,19 +8,19 @@ const background = ({theme}) => {
   return color + transparency
 }
 
-const Film = styled.section`
+const HeroStyled = styled.section`
   position: relative;
-  margin-bottom: 30%;
+  margin-bottom: clamp(100px, 30%, 150px);
   line-height: 0;
   background-color: ${background};
 `
 
 function Hero() {
   return (
-    <Film tag='section'>
+    <HeroStyled tag='section'>
       <ImageBg imageUrl='/images/code.jpg' />
       <Avatar imageUrl='/images/avatar.jpeg' />
-    </Film>
+    </HeroStyled>
   )
 }
 

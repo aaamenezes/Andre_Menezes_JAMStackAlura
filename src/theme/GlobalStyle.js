@@ -12,6 +12,15 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fontFamily.primary };
   }
 
+  html {
+    font-size: 14px;
+    line-height: 1.5;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
   body {
     color: ${ ({theme}) => theme.color.support.black };
     background-color: ${ ({theme}) => theme.color.support.gray };

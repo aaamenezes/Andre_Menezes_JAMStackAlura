@@ -17,11 +17,11 @@ const fontFamily = {
 }
 
 const fontSize = {
-  title: '48px',
-  subTitle: '39px',
-  superText: '20px',
-  text: '16px',
-  subText: '12px'
+  title: '2rem',
+  subTitle: '1.6rem',
+  superText: '1.1rem',
+  text: '1rem',
+  subText: '.9rem'
 }
 
 const transition = {

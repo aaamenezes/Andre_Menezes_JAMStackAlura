@@ -12,7 +12,9 @@ const LinksList = styled.ul`
   align-items: center;
 `
 
-function Header() {
+function Header(props) {
+
+  const router = useRouter()
 
   const navbarLinksList = [
     { title: 'Home', url: '/', },
@@ -21,10 +23,6 @@ function Header() {
   ]
 
   const navbarLinks = navbarLinksList.map(page => {
-
-    const router = useRouter()
-    console.log(router)
-
     return (
       <li key={page.url}>
         <Button
@@ -42,6 +40,7 @@ function Header() {
       tag='header'
       display='flex'
       alignItems='center'
+      width='100%'
       height='60px'
       padding='0'
       boxShadow='0 0 30px -20px black'
