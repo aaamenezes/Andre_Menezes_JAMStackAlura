@@ -13,7 +13,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${ ({theme}) => theme.color.support.gray }
+    color: ${ ({theme}) => theme.color.support.black };
+    background-color: ${ ({theme}) => theme.color.support.gray };
   }
 
   #__next {
@@ -21,11 +22,23 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    margin: 0;
+    margin: 15% 0 10%;
+    font-size: ${ ({theme}) => theme.fontSize.title };
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 0 5%;
+    font-size: ${ ({theme}) => theme.fontSize.subTitle };
+    text-align: center;
   }
 
   img {
     max-width: 100%;
+  }
+
+  a {
+    color: currentColor;
   }
 `
 

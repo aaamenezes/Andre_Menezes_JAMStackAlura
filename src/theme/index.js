@@ -38,12 +38,19 @@ const backGroundTransparent = {
   strong: 'CC'
 }
 
+const boxShadow = {
+  low: '0 0 40px -30px black',
+  medium: '0 0 40px -20px black',
+  high: '0 0 40px -10px black'
+}
+
 const theme = {
   color,
   fontFamily,
   fontSize,
   transition,
-  backGroundTransparent
+  backGroundTransparent,
+  boxShadow
 }
 
 export default theme
