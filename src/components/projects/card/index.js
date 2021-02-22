@@ -1,10 +1,17 @@
 import Link from 'next/link'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import Container from '../../common/container'
 import SubTitle from '../../text/subtitle'
 
+import breakpointsMedia from '../../../utils/breakpointsMedia'
+
 const CardStyled = styled.article`
+  ${breakpointsMedia({
+    xs: ({highLight}) => highLight ? `width: 100%;` : `width: 100%;`,
+    md: ({highLight}) => highLight ? `width: 100%;` : `width: 50%; margin-left: auto; margin-right: auto;`
+  })};
+
   margin: clamp(30px, 10%, 60px) 0;
   background-color: ${ ({theme}) => theme.color.support.white };
   box-shadow: ${ ({theme}) => theme.boxShadow.low };
@@ -15,10 +22,16 @@ const CardStyled = styled.article`
   }
 
   a {
-    display: ${ ({highLight}) => highLight ? 'block' : 'flex' };
+    ${breakpointsMedia({
+      xs: ({highLight}) => highLight ? `display: block;` : `display: flex;`,
+      md: ({highLight}) => highLight ? `display: flex;` : `display: block;`
+    })};
 
     img {
-      width: ${ ({highLight}) => highLight ? '100%' : '50%' };
+      ${breakpointsMedia({
+        xs: ({highLight}) => highLight ? `width: 100%;` : `width: 50%;`,
+        md: ({highLight}) => highLight ? `width: 50%;` : `width: 100%;`
+      })}
     }
   }
 `
