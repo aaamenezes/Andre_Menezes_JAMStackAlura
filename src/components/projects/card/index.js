@@ -37,7 +37,9 @@ const CardStyled = styled.article`
 `
 
 CardStyled.TextWrapper = styled(Container)`
-  display: ${ ({highLight}) => !highLight ? 'flex' : 'block' };
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: ${ ({highLight}) => !highLight ? 'center' : false };
   width: ${ ({highLight}) => !highLight ? '50%' : false };
   padding: 5%;

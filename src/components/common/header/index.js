@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 
 import Container from '../container'
-import Icon from '../../common/icon'
 import theme from '../../../theme'
 import Button from '../button'
 import styled from 'styled-components'
@@ -12,7 +11,7 @@ const LinksList = styled.ul`
   align-items: center;
 `
 
-function Header(props) {
+function Header() {
 
   const router = useRouter()
 
