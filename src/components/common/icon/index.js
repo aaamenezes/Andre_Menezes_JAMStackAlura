@@ -1,9 +1,10 @@
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 const Icon = styled.i`
-  font-size: ${ ({theme}) => theme.fontSize.subTitle };
-  color: ${ ({theme}) => theme.color.primary.normal };
-  transition: ${ ({theme}) => theme.transition.medium };
+  font-size: ${ ({ theme }) => theme.fontSize.subTitle };
+  color: ${ ({ theme }) => theme.color.primary.normal };
+  transition: ${ ({ theme }) => theme.transition.medium };
   cursor: pointer;
 
   &:hover {
@@ -12,15 +13,17 @@ const Icon = styled.i`
 `
 
 function IconWrapper(props) {
-  switch(props.type) {
-    case 'bars':
-      return <Icon className="fas fa-bars" />
-    case 'github':
-      return <Icon className="fab fa-github" />
-    case 'twitter':
-      return <Icon className="fab fa-twitter" />
-    case 'medium':
-      return <Icon className="fab fa-medium" />
+  switch (props.type) {
+  case 'bars':
+    return <Icon className='fas fa-bars' />
+  case 'github':
+    return <Icon className='fab fa-github' />
+  case 'twitter':
+    return <Icon className='fab fa-twitter' />
+  case 'medium':
+    return <Icon className='fab fa-medium' />
+  default:
+    return undefined
   }
 }
 

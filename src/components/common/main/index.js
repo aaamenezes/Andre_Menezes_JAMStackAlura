@@ -1,6 +1,7 @@
+import React from 'react'
 import Container from '../container'
 
-function Main({children, ...props}) {
+function Main({ children, ...props }) {
   return (
     <Container
       tag='main'

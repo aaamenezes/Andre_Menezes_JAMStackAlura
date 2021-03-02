@@ -5,9 +5,9 @@ const color = {
     light: '#FF6F75'
   },
   support: {
-    white: '#FFF',
+    white: '#FFFFFF',
     gray: '#F9F8FD',
-    black: '#333'
+    black: '#333333'
   }
 }
 

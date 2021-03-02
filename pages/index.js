@@ -10,7 +10,7 @@ import Footer from '../src/components/common/footer'
 
 export default function Home() {
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Main padding='0'>
         <Hero />
@@ -34,6 +34,6 @@ export default function Home() {
         </Container>
       </Main>
       <Footer />
-    </React.Fragment>
+    </>
   )
 }

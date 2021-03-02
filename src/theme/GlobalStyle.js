@@ -3,13 +3,13 @@ import { normalize } from 'styled-normalize'
 
 const GlobalStyle = createGlobalStyle`
 
-  ${normalize}
+  ${ normalize }
 
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: ${({ theme }) => theme.fontFamily.primary };
+    font-family: ${ ({ theme }) => theme.fontFamily.primary };
   }
 
   html {
@@ -22,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${ ({theme}) => theme.color.support.black };
-    background-color: ${ ({theme}) => theme.color.support.gray };
+    color: ${ ({ theme }) => theme.color.support.black };
+    background-color: ${ ({ theme }) => theme.color.support.gray };
   }
 
   #__next {
@@ -32,13 +32,13 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     margin: clamp(10px, 5%, 30px) 0 clamp(20px, 10%, 60px);
-    font-size: ${ ({theme}) => theme.fontSize.title };
+    font-size: ${ ({ theme }) => theme.fontSize.title };
     text-align: center;
   }
 
   h2 {
     margin: 0 0 clamp(20px, 5%, 60px);
-    font-size: ${ ({theme}) => theme.fontSize.subTitle };
+    font-size: ${ ({ theme }) => theme.fontSize.subTitle };
     text-align: center;
   }
 

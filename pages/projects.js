@@ -8,16 +8,17 @@ import CardWrapper from '../src/components/projects/cardWrapper'
 
 export default function Home() {
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Main padding='0'>
-        <Container tag='section'> 
+        <Container tag='section'>
           <h1>Projetos</h1>
+          {/* eslint-disable-next-line max-len */}
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab aperiam non libero. Laborum libero iste mollitia nisi ducimus sequi quas dolorum cupiditate quibusdam, tenetur veritatis amet obcaecati fugit animi minima.</p>
         </Container>
         <CardWrapper />
       </Main>
       <Footer />
-    </React.Fragment>
+    </>
   )
 }

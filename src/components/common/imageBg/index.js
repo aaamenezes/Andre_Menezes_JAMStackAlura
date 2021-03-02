@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 const ImageBgStyled = styled.img`
   position: relative;
@@ -8,7 +9,7 @@ const ImageBgStyled = styled.img`
   object-fit: cover;
 `
 
-function ImageBg({imageUrl, children}) {
+function ImageBg({ imageUrl, children }) {
   return (
     <ImageBgStyled src={imageUrl}>
       {children}
