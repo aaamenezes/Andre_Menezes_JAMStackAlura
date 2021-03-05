@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
+
 import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Container from '../../common/container'
 import SubTitle from '../../text/subtitle'
@@ -68,6 +70,14 @@ function Card({
       </Link>
     </CardStyled>
   )
+}
+
+Card.propTypes = {
+  cover: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  highLight: PropTypes.bool.isRequired
 }
 
 export default Card

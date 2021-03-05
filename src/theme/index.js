@@ -24,6 +24,12 @@ const fontSize = {
   subText: '.9rem'
 }
 
+const fontWeight = {
+  regular: '400',
+  semBold: '600',
+  bold: '700'
+}
+
 const transition = {
   slow: '1.3s',
   medium: '.7s',
@@ -58,16 +64,28 @@ const opacity = {
   light: '.9'
 }
 
+const zIndex = {
+  dropdown: 1000,
+  sticky: 1020,
+  fixed: 1030,
+  modalBackdrop: 1040,
+  modal: 1050,
+  popover: 1060,
+  tooltip: 1070
+}
+
 const theme = {
   color,
   fontFamily,
   fontSize,
+  fontWeight,
   transition,
   backGroundTransparent,
   boxShadow,
   borderRadius,
   breakpoints,
-  opacity
+  opacity,
+  zIndex
 }
 
 export default theme

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const ImageBgStyled = styled.img`
   position: relative;
@@ -15,6 +17,11 @@ function ImageBg({ imageUrl, children }) {
       {children}
     </ImageBgStyled>
   )
+}
+
+ImageBg.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default ImageBg

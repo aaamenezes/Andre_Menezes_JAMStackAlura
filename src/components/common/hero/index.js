@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import ImageBg from '../imageBg'
 import Avatar from '../avatar'

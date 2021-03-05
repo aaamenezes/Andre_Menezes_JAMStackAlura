@@ -1,12 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const ButtonStyled = styled.a`
   padding: 5px 10px;
   border: 1px solid ${ ({ theme }) => theme.color.primary.normal };
-  border-radius: ${ ({ theme }) => theme.borderRadius };
-  font-weight: bold;
+  text-transform: uppercase;
+  font-weight: ${ ({ theme }) => theme.fontWeight.bold };
   transition: ${ ({ theme }) => theme.transition.fast };
   cursor: pointer;
 
@@ -33,13 +34,11 @@ const ButtonStyled = styled.a`
   }
 `
 
-function Button({
-  variant, tag, children, url
-}) {
+function Button({ variant, children, url, setModalDisplay }) {
   if (url) {
     return (
       <Link href={url} passHref>
-        <ButtonStyled variant={variant} as={tag}>
+        <ButtonStyled variant={variant}>
           {children}
         </ButtonStyled>
       </Link>
@@ -47,10 +46,26 @@ function Button({
   }
 
   return (
-    <ButtonStyled variant={variant} as='button'>
+    <ButtonStyled
+      variant={variant}
+      as='button'
+      onClick={() => setModalDisplay(true)}
+    >
       {children}
     </ButtonStyled>
   )
+}
+
+Button.propTypes = {
+  variant: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  url: PropTypes.string,
+  setModalDisplay: PropTypes.func
+}
+
+Button.defaultProps = {
+  url: null,
+  setModalDisplay: null
 }
 
 export default Button

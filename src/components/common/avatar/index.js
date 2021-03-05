@@ -1,5 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types'
+
 import breakpointsMedia from '../../../utils/breakpointsMedia'
 
 const AvatarStyled = styled.div`
@@ -53,6 +55,10 @@ function Avatar({ imageUrl }) {
       </Crop>
     </AvatarStyled>
   )
+}
+
+Avatar.propTypes = {
+  imageUrl: PropTypes.string.isRequired
 }
 
 export default Avatar

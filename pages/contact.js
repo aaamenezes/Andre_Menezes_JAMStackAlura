@@ -8,7 +8,7 @@ import Modal from '../src/components/common/modal'
 import Button from '../src/components/common/button'
 
 export default function Home() {
-  const [ modalVisible, setModalVisible ] = useState(true)
+  const [ modalDisplay, setModalDisplay ] = useState(false)
   return (
     <>
       <Header />
@@ -17,10 +17,11 @@ export default function Home() {
           <Button
             variant='primary'
             as='button'
+            setModalDisplay={setModalDisplay}
           >
             Fazer contato
           </Button>
-          {modalVisible && <Modal />}
+          {modalDisplay && <Modal setModalDisplay={setModalDisplay} />}
         </Container>
       </Main>
       <Footer />

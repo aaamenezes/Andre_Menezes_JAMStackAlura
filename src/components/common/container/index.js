@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import propToStyle from '../../../utils/propToStyle'
 
@@ -33,6 +34,15 @@ function Container({ tag, children, ...props }) {
       {children}
     </ContainerStyled>
   )
+}
+
+Container.propTypes = {
+  tag: PropTypes.string,
+  children: PropTypes.node.isRequired
+}
+
+Container.defaultProps = {
+  tag: 'div'
 }
 
 export default Container

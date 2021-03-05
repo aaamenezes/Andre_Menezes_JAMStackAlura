@@ -1,7 +1,11 @@
 import React from 'react'
+
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
 import Title from '../../text/title'
 import Container from '../container'
+import Form from '../../form'
 
 function background({ theme }) {
   const color = theme.color.support.black
@@ -11,6 +15,7 @@ function background({ theme }) {
 
 const ModalBackdrop = styled.div`
   position: fixed;
+  z-index: ${ ({ theme }) => theme.zIndex.ModalBackdrop };
   top: 0;
   left: 0;
   width: 100vw;
@@ -19,7 +24,8 @@ const ModalBackdrop = styled.div`
 `
 
 const ModalStyled = styled(Container)`
-  position: absolute;
+  position: fixed;
+  z-index: ${ ({ theme }) => theme.zIndex.modal };
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
@@ -29,30 +35,28 @@ const ModalStyled = styled(Container)`
   justify-content: center;
   align-items: center;
 
-  width: 80vw;
+  width: clamp(250px, 70%, 500px);
   height: 80vh;
   padding: 10%;
   background-color: ${ ({ theme }) => theme.color.support.white };
 `
 
-function Modal() {
+function Modal({ setModalDisplay }) {
   return (
-    <ModalBackdrop>
+    <>
+      <ModalBackdrop onClick={() => setModalDisplay(false)} />
       <ModalStyled>
         <Title as='h2'>
           Fico feliz que queira me contatar!
         </Title>
-        <form>
-          <label htmlFor='name'>Seu nome</label>
-          <input type='text' id='name' name='name' />
-          <label htmlFor='email'>Seu email</label>
-          <input type='email' id='email' name='email' />
-          <label htmlFor='message'>Sua mensagem</label>
-          <textarea id='message' name='message' />
-        </form>
+        <Form />
       </ModalStyled>
-    </ModalBackdrop>
+    </>
   )
+}
+
+Modal.propTypes = {
+  setModalDisplay: PropTypes.func.isRequired
 }
 
 export default Modal
