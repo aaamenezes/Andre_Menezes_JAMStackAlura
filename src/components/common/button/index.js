@@ -32,9 +32,33 @@ const ButtonStyled = styled.a`
   &:hover {
     opacity: ${ ({ theme }) => theme.opacity.medium };
   }
+
+  &:focus {
+    ${ ({ variant, theme }) => {
+    if (variant === 'primary') {
+      return {
+        backgroundColor: theme.color.primary.dark
+      }
+    }
+
+    if (variant === 'secondary') {
+      return {
+        color: theme.color.support.white,
+        backgroundColor: theme.color.support.dark
+      }
+    }
+
+    return undefined
+  } };
+  }
+
+  &[disabled] {
+    opacity: ${ ({ theme }) => theme.opacity.transparent };
+    cursor: not-allowed;
+  }
 `
 
-function Button({ variant, children, url, setModalDisplay }) {
+function Button({ variant, children, url, setModalDisplay, disabled }) {
   if (url) {
     return (
       <Link href={url} passHref>
@@ -49,6 +73,7 @@ function Button({ variant, children, url, setModalDisplay }) {
     <ButtonStyled
       variant={variant}
       as='button'
+      disabled={disabled}
       onClick={() => setModalDisplay(true)}
     >
       {children}
@@ -60,7 +85,8 @@ Button.propTypes = {
   variant: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   url: PropTypes.string,
-  setModalDisplay: PropTypes.func
+  setModalDisplay: PropTypes.func,
+  disabled: PropTypes.bool.isRequired
 }
 
 Button.defaultProps = {

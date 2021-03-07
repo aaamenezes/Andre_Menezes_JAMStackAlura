@@ -6,14 +6,36 @@ import Container from '../src/components/common/container'
 import Footer from '../src/components/common/footer'
 import Modal from '../src/components/common/modal'
 import Button from '../src/components/common/button'
+import Title from '../src/components/text/title'
+import Form from '../src/components/form'
 
 export default function Home() {
   const [ modalDisplay, setModalDisplay ] = useState(false)
+
+  const formData = [
+    {
+      info: 'name',
+      label: 'Seu nome',
+      inputType: 'text'
+    },
+    {
+      info: 'email',
+      label: 'Seu email',
+      inputType: 'email'
+    },
+    {
+      info: 'message',
+      label: 'Sua mensagem',
+      inputType: 'textarea'
+    }
+  ]
+
   return (
     <>
       <Header />
       <Main padding='0'>
         <Container>
+
           <Button
             variant='primary'
             as='button'
@@ -21,7 +43,15 @@ export default function Home() {
           >
             Fazer contato
           </Button>
-          {modalDisplay && <Modal setModalDisplay={setModalDisplay} />}
+
+          {modalDisplay && (
+            <Modal setModalDisplay={setModalDisplay}>
+              <Title as='h2'>
+                Fico feliz que queira me contatar!
+              </Title>
+              <Form formData={formData} />
+            </Modal>
+          )}
         </Container>
       </Main>
       <Footer />

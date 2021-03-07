@@ -3,9 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import Title from '../../text/title'
 import Container from '../container'
-import Form from '../../form'
 
 function background({ theme }) {
   const color = theme.color.support.black
@@ -36,27 +34,25 @@ const ModalStyled = styled(Container)`
   align-items: center;
 
   width: clamp(250px, 70%, 500px);
-  height: 80vh;
-  padding: 10%;
+  min-height: 80vh;
+  padding: 5%;
   background-color: ${ ({ theme }) => theme.color.support.white };
 `
 
-function Modal({ setModalDisplay }) {
+function Modal({ setModalDisplay, children }) {
   return (
     <>
       <ModalBackdrop onClick={() => setModalDisplay(false)} />
       <ModalStyled>
-        <Title as='h2'>
-          Fico feliz que queira me contatar!
-        </Title>
-        <Form />
+        {children}
       </ModalStyled>
     </>
   )
 }
 
 Modal.propTypes = {
-  setModalDisplay: PropTypes.func.isRequired
+  setModalDisplay: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Modal
