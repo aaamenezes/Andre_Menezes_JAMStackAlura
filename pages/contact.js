@@ -49,7 +49,7 @@ export default function Home() {
               <Title as='h2'>
                 Fico feliz que queira me contatar!
               </Title>
-              <Form formData={formData} />
+              <Form />
             </Modal>
           )}
         </Container>
