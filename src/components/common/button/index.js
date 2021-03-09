@@ -58,7 +58,7 @@ const ButtonStyled = styled.a`
   }
 `
 
-function Button({ variant, children, url, setModalDisplay, disabled }) {
+function Button({ variant, children, url, handleClick, disabled }) {
   if (url) {
     return (
       <Link href={url} passHref>
@@ -74,7 +74,7 @@ function Button({ variant, children, url, setModalDisplay, disabled }) {
       variant={variant}
       as='button'
       disabled={disabled}
-      onClick={() => setModalDisplay(true)}
+      onClick={handleClick ? () => handleClick(true) : undefined}
     >
       {children}
     </ButtonStyled>
@@ -85,13 +85,12 @@ Button.propTypes = {
   variant: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   url: PropTypes.string,
-  setModalDisplay: PropTypes.func,
+  handleClick: PropTypes.func,
   disabled: PropTypes.bool
 }
 
 Button.defaultProps = {
   url: null,
-  setModalDisplay: null,
   disabled: false
 }
 

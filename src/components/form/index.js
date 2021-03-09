@@ -40,20 +40,35 @@ const InputStyled = styled.input`
 `
 
 function Form() {
-  const [ name, setName ] = useState('')
-  const [ email, setEmail ] = useState('')
-  const [ message, setMessage ] = useState('')
+  const [ contactInfo, setContactInfo ] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+
+  function handleChange(event) {
+    const fieldName = event.target.getAttribute('name')
+    setContactInfo({
+      ...contactInfo,
+      [fieldName]: event.target.value
+    })
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    // const url = 'https://contact-form-api-jamstack.herokuapp.com/message'
+  }
 
   return (
-    <FormStyled>
+    <FormStyled onSubmit={handleSubmit}>
       <FormGroupStyled>
         <label htmlFor='name'>Seu nome</label>
         <InputStyled
           type='text'
           id='name'
           name='name'
-          value={name}
-          onChange={event => setName(event.target.value)}
+          value={contactInfo.name}
+          onChange={handleChange}
         />
       </FormGroupStyled>
       <FormGroupStyled>
@@ -62,25 +77,27 @@ function Form() {
           type='email'
           id='email'
           name='email'
-          value={email}
-          onChange={event => setEmail(event.target.value)}
+          value={contactInfo.email}
+          onChange={handleChange}
         />
       </FormGroupStyled>
       <FormGroupStyled>
         <label htmlFor='message'>Sua mensagem</label>
         <InputStyled
-          type='textarea'
+          as='textarea'
           rows='3'
           id='message'
           name='message'
-          value={message}
-          onChange={event => setMessage(event.target.value)}
+          value={contactInfo.message}
+          onChange={handleChange}
         />
       </FormGroupStyled>
       <Button
         variant='primary'
         disabled={
-          name.length === 0 || email.length === 0 || message.length === 0
+          contactInfo.name.length === 0
+          || contactInfo.email.length === 0
+          || contactInfo.message.length === 0
         }
       >
         Enviar

@@ -21,7 +21,7 @@ export default function Home() {
           <Button
             variant='primary'
             as='button'
-            setModalDisplay={setModalDisplay}
+            handleClick={setModalDisplay}
           >
             Fazer contato
           </Button>
