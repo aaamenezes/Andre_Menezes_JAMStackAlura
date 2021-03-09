@@ -12,24 +12,6 @@ import Form from '../src/components/form'
 export default function Home() {
   const [ modalDisplay, setModalDisplay ] = useState(false)
 
-  const formData = [
-    {
-      info: 'name',
-      label: 'Seu nome',
-      inputType: 'text'
-    },
-    {
-      info: 'email',
-      label: 'Seu email',
-      inputType: 'email'
-    },
-    {
-      info: 'message',
-      label: 'Sua mensagem',
-      inputType: 'textarea'
-    }
-  ]
-
   return (
     <>
       <Header />
@@ -45,7 +27,10 @@ export default function Home() {
           </Button>
 
           {modalDisplay && (
-            <Modal setModalDisplay={setModalDisplay}>
+            <Modal
+              setModalDisplay={setModalDisplay}
+              modalDisplay={modalDisplay}
+            >
               <Title as='h2'>
                 Fico feliz que queira me contatar!
               </Title>

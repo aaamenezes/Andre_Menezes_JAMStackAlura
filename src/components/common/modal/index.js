@@ -1,7 +1,9 @@
 import React from 'react'
 
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import PropTypes from 'prop-types'
+
+import { motion } from 'framer-motion'
 
 import Container from '../container'
 
@@ -22,30 +24,48 @@ const ModalBackdrop = styled.div`
 `
 
 const ModalStyled = styled(Container)`
-  position: fixed;
-  z-index: ${ ({ theme }) => theme.zIndex.modal };
-  transform: translate(-50%, -50%);
+  position: relative;
+  /* z-index: ${ ({ theme }) => theme.zIndex.modal };
+  transform: translate(-50%, -50%) !important;
   top: 50%;
-  left: 50%;
+  left: 50%; */
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  width: clamp(250px, 70%, 500px);
+  width: clamp(250px, 100%, 600px);
   min-height: 80vh;
-  padding: 5%;
   background-color: ${ ({ theme }) => theme.color.support.white };
+`
+
+const LockScroll = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
 `
 
 function Modal({ setModalDisplay, children }) {
   return (
     <>
-      <ModalBackdrop onClick={() => setModalDisplay(false)} />
-      <ModalStyled>
-        {children}
-      </ModalStyled>
+      <LockScroll />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <ModalBackdrop onClick={() => setModalDisplay(false)} />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: [ 1000, 0, 0 ],
+          scale: [ 0.8, 0.8, 1 ]
+        }}
+      >
+        <ModalStyled>
+          {children}
+        </ModalStyled>
+      </motion.div>
     </>
   )
 }

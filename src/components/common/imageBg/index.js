@@ -11,17 +11,14 @@ const ImageBgStyled = styled.img`
   object-fit: cover;
 `
 
-function ImageBg({ imageUrl, children }) {
+function ImageBg({ imageUrl }) {
   return (
-    <ImageBgStyled src={imageUrl}>
-      {children}
-    </ImageBgStyled>
+    <ImageBgStyled src={imageUrl} />
   )
 }
 
 ImageBg.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  imageUrl: PropTypes.string.isRequired
 }
 
 export default ImageBg

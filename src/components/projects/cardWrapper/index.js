@@ -41,7 +41,7 @@ function CardWrapper() {
       text={project.text}
       url={project.url}
       highLight={project.highLight}
-      key={project.url}
+      key={project.title}
     />
   ))
 

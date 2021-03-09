@@ -86,12 +86,13 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   url: PropTypes.string,
   setModalDisplay: PropTypes.func,
-  disabled: PropTypes.bool.isRequired
+  disabled: PropTypes.bool
 }
 
 Button.defaultProps = {
   url: null,
-  setModalDisplay: null
+  setModalDisplay: null,
+  disabled: false
 }
 
 export default Button
