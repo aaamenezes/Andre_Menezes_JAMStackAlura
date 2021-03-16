@@ -16,7 +16,7 @@ module.exports = {
     'react'
   ],
   rules: {
-  // Permitir JSX tanto em arquivos .js quanto em .jsx
+    // Permitir JSX tanto em arquivos .js quanto em .jsx
     'react/jsx-filename-extension': [ 1, { extensions: [ '.js', '.jsx' ] } ],
     // Não permitir uso de var, converter para let
     'no-var': 'error',

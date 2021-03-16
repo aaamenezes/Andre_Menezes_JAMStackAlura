@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Button from '../common/button'
+import Error from './error'
+import Loading from './loading'
+import Success from './success'
 
 const FormStyled = styled.form`
   width: 100%;
@@ -39,12 +42,15 @@ const InputStyled = styled.input`
   }
 `
 
-function Form() {
+function Form({ setModalDisplay }) {
   const [ contactInfo, setContactInfo ] = useState({
     name: '',
     email: '',
     message: ''
   })
+
+  const formStates = [ 'WAITING', 'SENDING', 'DONE', 'ERROR' ]
+  const [ formState, setFormState ] = useState(formStates[0])
 
   function handleChange(event) {
     const fieldName = event.target.getAttribute('name')
@@ -54,56 +60,92 @@ function Form() {
     })
   }
 
+  function closeModal() {
+    setTimeout(() => {
+      setModalDisplay(false)
+    }, 6000)
+  }
+
   function handleSubmit(event) {
     event.preventDefault()
-    // const url = 'https://contact-form-api-jamstack.herokuapp.com/message'
+    setFormState(formStates[1])
+    const url = 'https://contact-form-api-jamstack.herokuapp.com/message'
+
+    fetch(url, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(contactInfo)
+    })
+      .then(serverResponse => {
+        if (serverResponse.ok && serverResponse.status === 201) {
+          setFormState(formStates[2])
+          return serverResponse.json()
+        }
+        closeModal()
+        throw new Error('Não foi possível cadastrar o usuário agora :(')
+      })
+      .then(convertedResponse => {
+        setFormState(formStates[2])
+        console.log(convertedResponse)
+        closeModal()
+      })
   }
 
   return (
-    <FormStyled onSubmit={handleSubmit}>
-      <FormGroupStyled>
-        <label htmlFor='name'>Seu nome</label>
-        <InputStyled
-          type='text'
-          id='name'
-          name='name'
-          value={contactInfo.name}
-          onChange={handleChange}
-        />
-      </FormGroupStyled>
-      <FormGroupStyled>
-        <label htmlFor='email'>Seu email</label>
-        <InputStyled
-          type='email'
-          id='email'
-          name='email'
-          value={contactInfo.email}
-          onChange={handleChange}
-        />
-      </FormGroupStyled>
-      <FormGroupStyled>
-        <label htmlFor='message'>Sua mensagem</label>
-        <InputStyled
-          as='textarea'
-          rows='3'
-          id='message'
-          name='message'
-          value={contactInfo.message}
-          onChange={handleChange}
-        />
-      </FormGroupStyled>
-      <Button
-        variant='primary'
-        disabled={
-          contactInfo.name.length === 0
+    <>
+      <FormStyled onSubmit={handleSubmit}>
+        <FormGroupStyled>
+          <label htmlFor='name'>Seu nome</label>
+          <InputStyled
+            type='text'
+            id='name'
+            name='name'
+            value={contactInfo.name}
+            onChange={handleChange}
+          />
+        </FormGroupStyled>
+        <FormGroupStyled>
+          <label htmlFor='email'>Seu email</label>
+          <InputStyled
+            type='email'
+            id='email'
+            name='email'
+            value={contactInfo.email}
+            onChange={handleChange}
+          />
+        </FormGroupStyled>
+        <FormGroupStyled>
+          <label htmlFor='message'>Sua mensagem</label>
+          <InputStyled
+            as='textarea'
+            rows='3'
+            id='message'
+            name='message'
+            value={contactInfo.message}
+            onChange={handleChange}
+          />
+        </FormGroupStyled>
+        <Button
+          variant='primary'
+          disabled={
+            contactInfo.name.length === 0
           || contactInfo.email.length === 0
           || contactInfo.message.length === 0
-        }
-      >
-        Enviar
-      </Button>
-    </FormStyled>
+          }
+        >
+          Enviar
+        </Button>
+      </FormStyled>
+      {formState === formStates[1] && <Loading />}
+      {formState === formStates[2] && <Success />}
+    </>
   )
+}
+
+Form.propTypes = {
+  setModalDisplay: PropTypes.func.isRequired
 }
 
 export default Form

@@ -34,7 +34,7 @@ export default function Home() {
               <Title as='h2'>
                 Fico feliz que queira me contatar!
               </Title>
-              <Form />
+              <Form setModalDisplay={setModalDisplay} />
             </Modal>
           )}
         </Container>
