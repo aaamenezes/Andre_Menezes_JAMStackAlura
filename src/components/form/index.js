@@ -108,7 +108,9 @@ function Form({ setModalDisplay }) {
           />
         </FormGroupStyled>
         <FormGroupStyled>
-          <label htmlFor='email'>Seu email</label>
+          <label htmlFor='email'>
+            Seu email
+          </label>
           <InputStyled
             type='email'
             id='email'
