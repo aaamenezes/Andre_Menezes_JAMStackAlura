@@ -18,8 +18,14 @@ const ContainerStyled = styled.div`
   ${ propToStyle('width') };
   ${ propToStyle('minHeight') };
   ${ propToStyle('padding') };
+  ${ propToStyle('paddingTop') };
+  ${ propToStyle('paddingRight') };
   ${ propToStyle('paddingBottom') };
+  ${ propToStyle('paddingLeft') };
   ${ propToStyle('marginTop') };
+  ${ propToStyle('marginRight') };
+  ${ propToStyle('marginBottom') };
+  ${ propToStyle('marginLeft') };
   ${ propToStyle('lineHeight') };
   ${ propToStyle('backgroundColor') };
   ${ propToStyle('boxShadow') };
