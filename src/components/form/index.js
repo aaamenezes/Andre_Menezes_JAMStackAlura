@@ -88,6 +88,7 @@ function Form({ setModalDisplay }) {
       })
       .then(convertedResponse => {
         setFormState(formStates[2])
+        // eslint-disable-next-line no-console
         console.log(convertedResponse)
         closeModal()
       })
@@ -107,7 +108,9 @@ function Form({ setModalDisplay }) {
           />
         </FormGroupStyled>
         <FormGroupStyled>
-          <label htmlFor='email'>Seu email</label>
+          <label htmlFor='email'>
+            Seu email
+          </label>
           <InputStyled
             type='email'
             id='email'

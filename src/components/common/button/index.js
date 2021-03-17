@@ -85,7 +85,7 @@ Button.propTypes = {
   variant: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   url: PropTypes.string,
-  handleClick: PropTypes.func,
+  handleClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool
 }
 
