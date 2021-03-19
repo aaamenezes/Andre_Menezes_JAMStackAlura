@@ -3,8 +3,13 @@ import theme from './theme'
 
 const InputRadioItem = styled.div`
   width: calc(100% / 3);
+  transition: ${ theme.transition.fast };
 
-  &:first-child {
+  &:hover {
+    background-color: ${ theme.color.lightBlue };
+  }
+
+  &:first-child 
     label {
       border-radius: ${ theme.borderRadius } 0 0 ${ theme.borderRadius };
     }
@@ -13,6 +18,12 @@ const InputRadioItem = styled.div`
   &:last-child {
     label {
       border-radius: 0 ${ theme.borderRadius } ${ theme.borderRadius } 0;
+    }
+  }
+
+  &:not(:first-child) {
+    label {
+      border-left: none;
     }
   }
 `

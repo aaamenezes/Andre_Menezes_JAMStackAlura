@@ -4,7 +4,7 @@ import React from 'react'
 function Icon({ type }) {
   if (type === 'money') {
     return (
-      <svg width='39' height='45' viewBox='0 0 39 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg width='39' height='50' viewBox='0 0 39 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path d='M32.0724 38.4375H6.496C4.73762 38.4375 3.29895 36.75 3.29895 34.6875V15.0938C3.29895 13.875 3.77851 12.75 4.6577 12L19.2842 0L33.9107 12C34.7899 12.6563 35.2695 13.875 35.2695 15.0938V34.6875C35.2695 36.75 33.8308 38.4375 32.0724 38.4375Z' fill='#78909C' />
         <path d='M27.2769 0.9375H11.2916V30H27.2769V0.9375Z' fill='#AED581' />
         <path d='M10.4923 0V30.9375H28.0761V0H10.4923ZM26.4776 29.0625H12.0908V1.875H26.4776V29.0625Z' fill='#558B2F' />

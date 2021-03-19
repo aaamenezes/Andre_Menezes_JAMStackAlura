@@ -9,6 +9,21 @@ import FormGroup from './alura/FormGroup'
 import Title from './alura/Title'
 
 function AluraViagens() {
+  const inputRadioInfos = [
+    {
+      text: 'Transferência',
+      image: 'money'
+    },
+    {
+      text: 'Cartão',
+      image: 'card'
+    },
+    {
+      text: 'Paypal',
+      image: 'paypal'
+    }
+  ]
+
   return (
     <>
       <GlobalStyle />
@@ -49,20 +64,40 @@ function AluraViagens() {
             <FormGroup
               info='paymentMethod'
               inputType='radio'
-              inputRadioInfos={[
-                {
-                  text: 'Transferência',
-                  image: 'money'
-                },
-                {
-                  text: 'Cartão',
-                  image: 'card'
-                },
-                {
-                  text: 'Paypal',
-                  image: 'paypal'
-                }
-              ]}
+              inputRadioInfos={inputRadioInfos}
+            />
+          </Fieldset>
+          <Fieldset>
+            <Legend>Quem vai viajar?</Legend>
+            <FormGroup
+              info='name'
+              label='Nome'
+              inputType='text'
+            />
+            <FormGroup
+              info='lastName'
+              label='Sobrenome'
+              inputType='text'
+            />
+            <FormGroup
+              info='sourceCountry'
+              label='País de residência'
+              inputType='select'
+            />
+            <FormGroup
+              info='cpf'
+              label='CPF'
+              inputType='text'
+            />
+            <FormGroup
+              info='email'
+              label='Email'
+              inputType='email'
+            />
+            <FormGroup
+              info='phone'
+              label='Telefone'
+              inputType='text'
             />
           </Fieldset>
         </form>

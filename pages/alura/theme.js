@@ -19,6 +19,11 @@ const theme = {
     thin: '200',
     regular: '400',
     bold: '700'
+  },
+  transition: {
+    fast: '.3s',
+    medium: '.6s',
+    slow: '1s'
   }
 }
 

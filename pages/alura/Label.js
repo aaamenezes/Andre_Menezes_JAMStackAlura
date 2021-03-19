@@ -10,7 +10,10 @@ const Label = styled.label`
   ${ propToStyle('flexDirection') };
   ${ propToStyle('alignItems') };
   ${ propToStyle('border') };
+  ${ propToStyle('borderCollapse') };
+  ${ propToStyle('fontSize') };
   ${ propToStyle('userSelect') };
+  ${ propToStyle('cursor') };
 `
 
 export default Label
