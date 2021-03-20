@@ -7,6 +7,7 @@ import Legend from './alura/Legend'
 import Fieldset from './alura/Fieldset'
 import FormGroup from './alura/FormGroup'
 import Title from './alura/Title'
+import Button from './alura/Button'
 
 function AluraViagens() {
   const inputRadioInfos = [
@@ -29,8 +30,7 @@ function AluraViagens() {
       <GlobalStyle />
       <Container
         backgroundColor={theme.color.white}
-        paddingLeft='5%'
-        paddingRight='5%'
+        padding='5%'
         width='90%'
         boxShadow={`0 0 20px -5px ${ theme.color.black }`}
       >
@@ -100,6 +100,7 @@ function AluraViagens() {
               inputType='text'
             />
           </Fieldset>
+          <Button text='COMPRAR' />
         </form>
       </Container>
     </>

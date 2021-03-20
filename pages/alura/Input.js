@@ -9,7 +9,7 @@ const Input = styled.input`
   border-radius: ${ theme.borderRadius };
   border: 1px solid ${ theme.color.blue };
   outline: none;
-  transition: ${ theme.transition.medium };
+  transition: ${ theme.transition.fast };
   ${ propToStyle('display') };
   ${ propToStyle('width') };
   ${ propToStyle('backgroundColor') };

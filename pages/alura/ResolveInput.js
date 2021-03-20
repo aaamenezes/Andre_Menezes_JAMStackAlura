@@ -14,7 +14,7 @@ function ResolveInput(info, inputType, inputRadioInfos) {
   const isPrimitive = arrayBool.reduce((total, current) => total || current)
 
   if (isPrimitive) {
-    return <Input type={inputType} id={info} name={info} />
+    return <Input type={inputType} id={info} name={info} required />
   }
 
   if (inputType === 'select') {
@@ -24,7 +24,13 @@ function ResolveInput(info, inputType, inputRadioInfos) {
         : <option>{country.text}</option>
     ))
     return (
-      <Input id={info} name={info} as='select' backgroundColor='transparent'>
+      <Input
+        id={info}
+        name={info}
+        as='select'
+        backgroundColor='transparent'
+        required
+      >
         {optionsElements}
       </Input>
     )
