@@ -25,6 +25,46 @@ function AluraViagens() {
     }
   ]
 
+  // function handleChangeCPF(event) {
+  //   console.log(event.target.value.length)
+
+  //   if (event.target.value.length === 3) { // Insert first dot
+  //     event.target.value = `${ event.target.value }.`
+  //   }
+  //   if (event.target.value.length === 7) { // Insert second dot
+  //     event.target.value = `${ event.target.value }.`
+  //   }
+  //   if (event.target.value.length === 11) { // Insert hyphen
+  //     event.target.value = `${ event.target.value }-`
+  //   }
+  //   if (event.target.value.length === 15) { // Limit
+  //     event.target.value = event.target.value.slice(0, -1)
+  //   }
+  // }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    const formData = {}
+    const formNames = [
+      'phone',
+      'email',
+      'cpf',
+      'sourceCountry',
+      'lastName',
+      'name',
+      'paymentMethod',
+      'destinyPlace',
+      'sourcePlace',
+      'returnDate',
+      'sourceDate'
+    ]
+    formNames.forEach(name => {
+      formData[name] = event.target.querySelector(`[name=${ name }`).value
+    })
+
+    // console.log(formData)
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -35,7 +75,7 @@ function AluraViagens() {
         boxShadow={`0 0 20px -5px ${ theme.color.black }`}
       >
         <Title>Alura Viagens</Title>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Fieldset>
             <Legend>Quando será a sua viagem?</Legend>
             <FormGroup
@@ -88,6 +128,7 @@ function AluraViagens() {
               info='cpf'
               label='CPF'
               inputType='text'
+              // onChange={handleChangeCPF}
             />
             <FormGroup
               info='email'

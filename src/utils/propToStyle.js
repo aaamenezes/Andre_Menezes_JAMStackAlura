@@ -1,5 +1,3 @@
-import breakpointsMedia from './breakpointsMedia'
-
 function propToStyle(propName) {
   function styleReturned(props) {
     const propValue = props[propName]

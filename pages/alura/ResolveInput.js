@@ -8,26 +8,35 @@ import theme from './theme'
 import Label from './Label'
 import countries from './countries'
 
-function ResolveInput(info, inputType, inputRadioInfos) {
+function ResolveInput(info, inputType, inputRadioInfos, onChange) {
   const primitiveTypes = [ 'text', 'date', 'number', 'email' ]
   const arrayBool = primitiveTypes.map(type => inputType === type)
   const isPrimitive = arrayBool.reduce((total, current) => total || current)
 
   if (isPrimitive) {
-    return <Input type={inputType} id={info} name={info} required />
+    return (
+      <Input
+        type={inputType}
+        id={info}
+        name={info}
+        onChange={onChange}
+        required
+      />
+    )
   }
 
   if (inputType === 'select') {
     const optionsElements = countries.map(country => (
-      country.text === 'Brazil'
-        ? <option selected>{country.text}</option>
-        : <option>{country.text}</option>
+      <option key={country.value}>
+        {country.text}
+      </option>
     ))
     return (
       <Input
         id={info}
         name={info}
         as='select'
+        defaultValue='Brazil'
         backgroundColor='transparent'
         required
       >
@@ -38,11 +47,12 @@ function ResolveInput(info, inputType, inputRadioInfos) {
 
   if (inputType === 'radio') {
     const inputRadioElements = inputRadioInfos.map(input => (
-      <InputRadioItem>
+      <InputRadioItem key={input.text}>
         <Input
           type='radio'
           id={input.text}
           name={info}
+          value={input.image}
           display='none'
           width='auto'
         />
