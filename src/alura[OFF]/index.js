@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { theme } from './alura/theme'
-import Container from '../src/components/common/container'
-import GlobalStyle from './alura/GlobalStyle'
-import Legend from './alura/Legend'
-import Fieldset from './alura/Fieldset'
-import FormGroup from './alura/FormGroup'
-import Title from './alura/Title'
-import Button from './alura/Button'
+import { theme } from './theme'
+import Container from '../components/common/container'
+import GlobalStyle from './GlobalStyle'
+import Legend from './Legend'
+import Fieldset from './Fieldset'
+import FormGroup from './FormGroup'
+import Title from './Title'
+import Button from './Button'
 
 function AluraViagens() {
   const inputRadioInfos = [

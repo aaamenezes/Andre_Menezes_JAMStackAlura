@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import propToStyle from '../../src/utils/propToStyle'
-import theme from './theme'
+import propToStyle from '../utils/propToStyle'
+import { theme } from './theme'
 
 const Input = styled.input`
   width: 100%;

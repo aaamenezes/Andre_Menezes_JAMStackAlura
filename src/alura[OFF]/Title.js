@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import theme from './theme'
+import { theme } from './theme'
 
 const Title = styled.h1`
   margin-top: 0;

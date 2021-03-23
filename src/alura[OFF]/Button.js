@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import theme from './theme'
+import { theme } from './theme'
+
 
 const ButtonStyled = styled.button`
   position: relative;

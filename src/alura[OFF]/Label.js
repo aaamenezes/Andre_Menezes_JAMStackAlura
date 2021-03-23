@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import propToStyle from '../../src/utils/propToStyle'
-import theme from './theme'
+import propToStyle from '../utils/propToStyle'
+import { theme } from './theme'
 
 const Label = styled.label`
   font-size: ${ theme.fontSize.label };

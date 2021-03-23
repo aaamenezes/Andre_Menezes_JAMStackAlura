@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import theme from './theme'
+import { theme } from './theme'
 
 const Legend = styled.legend`
   font-size: ${ theme.fontSize.legend };

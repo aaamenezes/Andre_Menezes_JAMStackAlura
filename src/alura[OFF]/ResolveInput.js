@@ -4,7 +4,7 @@ import Input from './Input'
 import InputRadioWrapper from './InputRadioWrapper'
 import InputRadioItem from './InputRadioItem'
 import Icon from './Icon'
-import theme from './theme'
+import { theme } from './theme'
 import Label from './Label'
 import countries from './countries'
 

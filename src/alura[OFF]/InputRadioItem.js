@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import theme from './theme'
+import { theme } from './theme'
 
 const InputRadioItem = styled.div`
   width: calc(100% / 3);
