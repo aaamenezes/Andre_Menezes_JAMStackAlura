@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 import { theme } from './theme'
 
-
 const ButtonStyled = styled.button`
   position: relative;
   width: 100%;
