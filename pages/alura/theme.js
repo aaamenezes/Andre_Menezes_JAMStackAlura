@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   borderRadius: '5px',
   color: {
     lightBlue: '#D3EAFF',
@@ -26,5 +26,3 @@ const theme = {
     slow: '1s'
   }
 }
-
-export default theme

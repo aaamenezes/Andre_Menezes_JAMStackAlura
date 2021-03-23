@@ -1,6 +1,6 @@
 import React from 'react'
 
-import theme from './alura/theme'
+import { theme } from './alura/theme'
 import Container from '../src/components/common/container'
 import GlobalStyle from './alura/GlobalStyle'
 import Legend from './alura/Legend'
