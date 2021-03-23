@@ -85,13 +85,14 @@ Button.propTypes = {
   variant: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   url: PropTypes.string,
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
   disabled: PropTypes.bool
 }
 
 Button.defaultProps = {
   url: null,
-  disabled: false
+  disabled: false,
+  handleClick: null
 }
 
 export default Button
