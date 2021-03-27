@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import Container from '../../common/container'
