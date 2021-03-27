@@ -42,14 +42,18 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
   }
 
-  img {
-    display: block;
-    max-width: 100%;
+  p {
+    margin-bottom: 30px;
   }
 
   a {
     color: currentColor;
     text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
   }
 
   button {
