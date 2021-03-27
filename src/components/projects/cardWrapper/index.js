@@ -1,53 +1,34 @@
 import React from 'react'
 import Container from '../../common/container'
 import Card from '../card'
+import { projectsList } from './projectsList'
 
 function CardWrapper() {
-  const projectsList = [
-    {
-      cover: '/images/code.jpg',
-      title: 'Projeto 1',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab.',
-      url: '/#',
-      highLight: true
-    },
-    {
-      cover: '/images/code.jpg',
-      title: 'Projeto 2',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab.',
-      url: '/#',
-      highLight: false
-    },
-    {
-      cover: '/images/code.jpg',
-      title: 'Projeto 3',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab.',
-      url: '/#',
-      highLight: false
-    },
-    {
-      cover: '/images/code.jpg',
-      title: 'Projeto 4',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab.',
-      url: '/#',
-      highLight: true
-    }
-  ]
-
-  const projects = projectsList.map(project => (
+  const projectsElements = projectsList.map((project, index) => (
     <Card
       cover={project.cover}
       title={project.title}
       text={project.text}
       url={project.url}
-      highLight={project.highLight}
+      highLight={index % 3 === 0}
       key={project.title}
     />
   ))
 
   return (
-    <Container tag='section'>
-      {projects}
+    <Container
+      tag='section'
+      display='grid'
+      gridTemplateColumns={{
+        xs: '1fr',
+        md: '1fr 1fr'
+      }}
+      gridGap={{
+        xs: '30px',
+        md: '40px'
+      }}
+    >
+      {projectsElements}
     </Container>
   )
 }

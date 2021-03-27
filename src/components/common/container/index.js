@@ -14,6 +14,9 @@ const ContainerStyled = styled.div`
   ${ propToStyle('display') };
   ${ propToStyle('justifyContent') };
   ${ propToStyle('alignItems') };
+  ${ propToStyle('gridTemplateColumns') };
+  ${ propToStyle('gridGap') };
+
   ${ propToStyle('height') };
   ${ propToStyle('width') };
   ${ propToStyle('minHeight') };
