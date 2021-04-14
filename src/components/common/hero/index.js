@@ -30,7 +30,22 @@ function Hero() {
   return (
     <HeroStyled tag='section'>
       <ImageBg imageUrl='/images/code.jpg' />
-      <Avatar imageUrl='/images/avatar.jpeg' />
+      <Avatar
+        imageUrl='/images/avatar.jpeg'
+        position='absolute'
+        transform={{
+          xs: 'translate(-50%, -50%)',
+          md: 'translate(0, -50%)'
+        }}
+        top={{
+          xs: '100%',
+          md: 'initial'
+        }}
+        left={{
+          xs: '50%',
+          md: '10%'
+        }}
+      />
     </HeroStyled>
   )
 }

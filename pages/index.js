@@ -3,7 +3,7 @@ import Header from '../src/components/common/header'
 import Main from '../src/components/common/main'
 import Hero from '../src/components/common/hero'
 import Container from '../src/components/common/container'
-import Title from '../src/components/text/title'
+import Title from '../src/components/title'
 import Footer from '../src/components/common/footer'
 
 export default function Home() {

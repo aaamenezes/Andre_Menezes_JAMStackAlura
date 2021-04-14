@@ -1,64 +1,81 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-
 import breakpointsMedia from '../../../utils/breakpointsMedia'
+import propToStyle from '../../../utils/propToStyle'
 
 const AvatarStyled = styled.div`
   width: clamp(100px, 50%, 250px);
-
-  ${ breakpointsMedia({
-    xs: css`
-      position: absolute;
-      transform: translate(-50%, -50%);
-      top: 100%;
-      left: 50%;
-    `,
-    md: css`
-      transform: translate(0, -50%);
-      top: initial;
-      left: 10%;
-    `
-  }) }
-
-  img {
-    border-radius: 50%;
-
-    ${ breakpointsMedia({
-    xs: css`
-        position: absolute;
-        top: 0;
-      `,
-    md: css`
-        position: initial;
-      `
-  }) }
-  }
+  ${ propToStyle('position') }
+  ${ propToStyle('transform') }
+  ${ propToStyle('top') }
+  ${ propToStyle('left') }
+  ${ propToStyle('margin') }
 `
 
 const Crop = styled.div`
-  ${ breakpointsMedia({
-    xs: css`
-      padding-top: 100%;
-    `,
-    md: css`
-      padding-top: initial;
-    `
-  }) }
+  display: block;
+
+  ${ ({ positioned }) => {
+    if (positioned) {
+      return breakpointsMedia({
+        xs: css`
+          padding-top: 100%;
+        `,
+        md: css`
+          padding-top: initial;
+        `
+      })
+    }
+    return undefined
+  } }
+
+  ${ propToStyle('paddingTop') }
 `
 
-function Avatar({ imageUrl }) {
+const ImageStyled = styled.img`
+  border-radius: 50%;
+
+  ${ ({ positioned }) => {
+    if (positioned) {
+      return breakpointsMedia({
+        xs: css`
+          position: absolute;
+          top: 0;
+        `,
+        md: css`
+          position: initial;
+        `
+      })
+    }
+    return undefined
+  } }
+
+  ${ propToStyle('position') }
+  ${ propToStyle('top') }
+`
+
+function Avatar({ imageUrl, position, ...props }) {
   return (
-    <AvatarStyled>
-      <Crop>
-        <img src={imageUrl} alt='avatar' />
+    <AvatarStyled position={position} {...props}>
+      <Crop positioned={position === 'absolute'}>
+        <ImageStyled
+          src={imageUrl}
+          alt='imagem de perfil'
+          positioned={position === 'absolute'}
+        />
       </Crop>
     </AvatarStyled>
   )
 }
 
 Avatar.propTypes = {
-  imageUrl: PropTypes.string.isRequired
+  imageUrl: PropTypes.string.isRequired,
+  position: PropTypes.string
+}
+
+Avatar.defaultProps = {
+  position: undefined
 }
 
 export default Avatar

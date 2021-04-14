@@ -1,12 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import propToStyle from '../../../utils/propToStyle'
+import styled from 'styled-components'
+import propToStyle from '../../utils/propToStyle'
 
 const TitleStyled = styled.h2`
-  color: ${ ({ theme }) => theme.color.support.black };
-  ${ propToStyle('textAlign') }
   ${ propToStyle('margin') }
+  ${ propToStyle('textAlign') }
 `
 
 function Title({ titleTag, children, ...props }) {

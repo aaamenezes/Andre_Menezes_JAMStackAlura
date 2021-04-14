@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    margin: 0 0 clamp(20px, 5%, 60px);
+    margin: clamp(5px, 5%, 15px) 0 clamp(20px, 5%, 60px);
     font-size: ${ ({ theme }) => theme.fontSize.subTitle };
     text-align: center;
   }

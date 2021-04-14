@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Container from '../../common/container'
 import breakpointsMedia from '../../../utils/breakpointsMedia'
-import Title from '../../text/title'
+import Title from '../../title'
 
 const CardStyled = styled.article`
   ${ breakpointsMedia({
