@@ -9,7 +9,7 @@ import Button from '../src/components/common/button'
 import Title from '../src/components/text/title'
 import Form from '../src/components/form'
 
-export default function Home() {
+export default function Contact() {
   const [ modalDisplay, setModalDisplay ] = useState(false)
 
   return (
@@ -31,7 +31,7 @@ export default function Home() {
               setModalDisplay={setModalDisplay}
               modalDisplay={modalDisplay}
             >
-              <Title as='h2'>
+              <Title>
                 Fico feliz que queira me contatar!
               </Title>
               <Form setModalDisplay={setModalDisplay} />

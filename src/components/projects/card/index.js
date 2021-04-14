@@ -1,13 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
-
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
 import Container from '../../common/container'
-import SubTitle from '../../text/subtitle'
-
 import breakpointsMedia from '../../../utils/breakpointsMedia'
+import Title from '../../text/title'
 
 const CardStyled = styled.article`
   ${ breakpointsMedia({
@@ -58,9 +55,9 @@ function Card({ cover, title, text, url, highLight }) {
         <a href={url}>
           <img src={cover} alt={`${ title } - ${ text }`} />
           <CardStyled.TextWrapper>
-            <SubTitle margin='0'>
+            <Title margin='0'>
               {title}
-            </SubTitle>
+            </Title>
             {highLight && <p>{text}</p>}
           </CardStyled.TextWrapper>
         </a>

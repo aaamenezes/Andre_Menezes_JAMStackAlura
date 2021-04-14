@@ -6,7 +6,7 @@ import Container from '../src/components/common/container'
 import Footer from '../src/components/common/footer'
 import CardWrapper from '../src/components/projects/cardWrapper'
 
-export default function Home() {
+export default function Projects() {
   return (
     <>
       <Header />

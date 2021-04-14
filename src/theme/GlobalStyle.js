@@ -9,21 +9,18 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: ${ ({ theme }) => theme.fontFamily.primary };
   }
 
-  html {
+  body {
     font-size: 14px;
+    font-family: ${ ({ theme }) => theme.fontFamily.primary };
     line-height: 1.5;
+    color: ${ ({ theme }) => theme.color.support.black };
+    background-color: ${ ({ theme }) => theme.color.support.gray };
 
     @media (min-width: 768px) {
       font-size: 18px;
     }
-  }
-
-  body {
-    color: ${ ({ theme }) => theme.color.support.black };
-    background-color: ${ ({ theme }) => theme.color.support.gray };
   }
 
   #__next {
@@ -40,6 +37,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 0 clamp(20px, 5%, 60px);
     font-size: ${ ({ theme }) => theme.fontSize.subTitle };
     text-align: center;
+  }
+
+  h3 {
+    text-align: left;
   }
 
   p {

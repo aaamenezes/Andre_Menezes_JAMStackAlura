@@ -8,7 +8,7 @@ export const theme = {
     black: '#333333'
   },
   fontSize: {
-    // '39px',
+    super: '39px',
     title: '31px',
     legend: '25px',
     label: '20px',

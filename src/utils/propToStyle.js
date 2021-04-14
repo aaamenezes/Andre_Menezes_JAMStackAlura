@@ -11,6 +11,7 @@ function propToStyle(propName) {
     }
 
     if (typeof propValue === 'object') {
+      console.log('entrou no object', propName)
       const breakpoints = {}
       if (propValue.xs) breakpoints.xs = { [propName]: propValue.xs }
       if (propValue.sm) breakpoints.sm = { [propName]: propValue.sm }
