@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 import propToStyle from '../../../utils/propToStyle'
 
 const ContainerStyled = styled.div`
-  width: clamp(200px, 100%, 1200px);
+  width: 100%;
+  max-width: 1200px;
   padding-left: 10%;
   padding-right: 10%;
   margin-left: auto;
@@ -19,6 +20,7 @@ const ContainerStyled = styled.div`
 
   ${ propToStyle('height') };
   ${ propToStyle('width') };
+  ${ propToStyle('maxWidth') };
   ${ propToStyle('minHeight') };
   ${ propToStyle('padding') };
   ${ propToStyle('paddingTop') };
@@ -30,6 +32,7 @@ const ContainerStyled = styled.div`
   ${ propToStyle('marginBottom') };
   ${ propToStyle('marginLeft') };
   ${ propToStyle('lineHeight') };
+  ${ propToStyle('color') };
   ${ propToStyle('backgroundColor') };
   ${ propToStyle('boxShadow') };
 `

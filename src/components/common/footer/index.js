@@ -13,7 +13,10 @@ function FooterWrapper() {
       alignItems='center'
       height='60px'
       width={{
-        md: 'clamp(200px, 100%, 500px);'
+        md: '100%'
+      }}
+      maxWidth={{
+        md: '500px'
       }}
       padding={{
         md: '0'

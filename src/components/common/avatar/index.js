@@ -5,7 +5,8 @@ import breakpointsMedia from '../../../utils/breakpointsMedia'
 import propToStyle from '../../../utils/propToStyle'
 
 const AvatarStyled = styled.div`
-  width: clamp(100px, 50%, 250px);
+  width: 50%;
+  max-width: 250px;
   ${ propToStyle('position') }
   ${ propToStyle('transform') }
   ${ propToStyle('top') }

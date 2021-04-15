@@ -49,7 +49,10 @@ function Header() {
           md: '0'
         }}
         width={{
-          md: 'clamp(200px, 100%, 500px);'
+          md: '100%'
+        }}
+        maxWidth={{
+          md: '500px'
         }}
       >
         <LinksList>

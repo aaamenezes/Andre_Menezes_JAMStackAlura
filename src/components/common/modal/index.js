@@ -35,7 +35,8 @@ const ModalStyled = styled(Container)`
   justify-content: center;
   align-items: center;
 
-  width: clamp(250px, 100%, 600px);
+  width: 100%;
+  max-width: 600px;
   min-height: 80vh;
   background-color: ${ ({ theme }) => theme.color.support.white };
 `
