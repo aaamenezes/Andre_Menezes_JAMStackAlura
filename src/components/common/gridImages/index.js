@@ -34,7 +34,7 @@ const GridImagesStyled = styled.div`
 
 function GridImages({ images }) {
   const imageElements = images.map(image => (
-    <div>
+    <div key={image.alt}>
       <img src={image.url} alt={image.alt} />
     </div>
   ))

@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import propToStyle from '../../../utils/propToStyle'
 
 const ButtonStyled = styled.a`
   padding: 5px 10px;
@@ -10,6 +11,9 @@ const ButtonStyled = styled.a`
   font-weight: ${ ({ theme }) => theme.fontWeight.bold };
   transition: ${ ({ theme }) => theme.transition.fast };
   cursor: pointer;
+
+  ${ propToStyle('display') }
+  ${ propToStyle('margin') }
 
   ${ ({ variant, theme }) => {
     if (variant === 'primary') {
@@ -58,7 +62,7 @@ const ButtonStyled = styled.a`
   }
 `
 
-function Button({ variant, children, url, handleClick, disabled }) {
+function Button({ variant, children, url, handleClick, disabled, ...props }) {
   if (url) {
     return (
       <Link href={url} passHref>
@@ -74,6 +78,7 @@ function Button({ variant, children, url, handleClick, disabled }) {
       variant={variant}
       as='button'
       disabled={disabled}
+      {...props}
       onClick={handleClick ? () => handleClick(true) : undefined}
     >
       {children}

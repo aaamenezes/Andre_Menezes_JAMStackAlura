@@ -12,6 +12,7 @@ import Avatar from '../src/components/common/avatar'
 import Text from '../src/components/text'
 import theme from '../src/theme'
 import GridImages from '../src/components/common/gridImages'
+import Numbers from '../src/components/contact/numbers'
 
 export default function Contact() {
   const [ modalDisplay, setModalDisplay ] = useState(false)
@@ -130,16 +131,30 @@ export default function Contact() {
                 // eslint-disable-next-line max-len
                 url: 'https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U',
                 alt: 'Alt imagem 7'
-              },
+              }
             ]}
           />
         </Container>
 
+        <Container>
+          <Numbers number='5' text='Projetos em ReactJS' />
+          <Numbers number='+10' text='Palestras' />
+          <Numbers number='+30' text='Contribuições para projetos opensource' />
+        </Container>
+
         <Container as='section'>
+          <Title>Entre em contato</Title>
+          {/* eslint-disable-next-line max-len */}
+          <Text>Commodi, tempore perferendis excepturi atque distinctio sint iusto aut voluptatem assumenda, odit nesciunt asperiores eius. Eos neque dicta aut alias non soluta mollitia facere iste, minus aliquam amet sapiente autem.</Text>
+
+          {/* eslint-disable-next-line max-len */}
+          <Text>Autem culpa necessitatibus expedita reiciendis debitis totam quis vel neque vitae nemo praesentium reprehenderit voluptatem, rerum voluptate molestias, minus in? Vero ratione rem aliquam repellendus praesentium omnis eius quidem excepturi.</Text>
 
           <Button
             variant='primary'
             as='button'
+            display='block'
+            margin='auto'
             handleClick={setModalDisplay}
           >
             Fazer contato
