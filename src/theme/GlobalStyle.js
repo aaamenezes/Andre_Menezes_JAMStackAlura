@@ -52,8 +52,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: currentColor;
+    color: ${ ({ theme }) => theme.color.primary.dark };
     text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   img {

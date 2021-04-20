@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import PropTypes from 'prop-types'
-import { motion } from 'framer-motion'
 import Container from '../container'
 
 function background({ theme }) {
