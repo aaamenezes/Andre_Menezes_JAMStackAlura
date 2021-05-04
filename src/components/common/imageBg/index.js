@@ -1,24 +1,34 @@
 import React from 'react'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 const ImageBgStyled = styled.img`
   position: relative;
   z-index: -1;
   width: 100%;
-  max-height: 300px;
   object-fit: cover;
+
+  ${ ({ fullHeight }) => (
+    fullHeight
+      ? css`height: 100%;`
+      : css`max-height: 300px;`
+  ) }
 `
 
-function ImageBg({ imageUrl }) {
+function ImageBg({ imageURL, fullHeight }) {
   return (
-    <ImageBgStyled src={imageUrl} />
+    <ImageBgStyled src={imageURL} fullHeight />
   )
 }
 
 ImageBg.propTypes = {
-  imageUrl: PropTypes.string.isRequired
+  imageURL: PropTypes.string.isRequired,
+  fullHeight: PropTypes.bool
+}
+
+ImageBg.defaultProps = {
+  fullHeight: false
 }
 
 export default ImageBg

@@ -17,7 +17,6 @@ const ContainerStyled = styled.div`
   ${ propToStyle('alignItems') };
   ${ propToStyle('gridTemplateColumns') };
   ${ propToStyle('gridGap') };
-
   ${ propToStyle('height') };
   ${ propToStyle('width') };
   ${ propToStyle('maxWidth') };
@@ -32,8 +31,8 @@ const ContainerStyled = styled.div`
   ${ propToStyle('marginBottom') };
   ${ propToStyle('marginLeft') };
   ${ propToStyle('lineHeight') };
-  ${ propToStyle('color') };
   ${ propToStyle('backgroundColor') };
+  ${ propToStyle('color') };
   ${ propToStyle('boxShadow') };
 `
 

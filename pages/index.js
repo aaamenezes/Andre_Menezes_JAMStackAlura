@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Header />
       <Main padding='0'>
-        <Hero />
+        <Hero imageURL='/images/code.jpg' avatarURL='/images/avatar.jpeg' />
         <Container tag='section'>
           <Title
             textAlign={{

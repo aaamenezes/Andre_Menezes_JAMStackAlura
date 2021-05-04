@@ -54,8 +54,8 @@ export default function Contact() {
         <Container
           as='section'
           padding='0'
-          color={theme.color.support.white}
           backgroundColor={theme.color.support.black}
+          color={theme.color.support.white}
           maxWidth='initial'
         >
           <Container
@@ -136,7 +136,7 @@ export default function Contact() {
           />
         </Container>
 
-        <Container>
+        <Container as='section'>
           <Numbers number='5' text='Projetos em ReactJS' />
           <Numbers number='+10' text='Palestras' />
           <Numbers number='+30' text='Contribuições para projetos opensource' />
@@ -154,7 +154,7 @@ export default function Contact() {
             variant='primary'
             as='button'
             display='block'
-            margin='auto'
+            margin='auto auto 30px'
             handleClick={setModalDisplay}
           >
             Fazer contato
