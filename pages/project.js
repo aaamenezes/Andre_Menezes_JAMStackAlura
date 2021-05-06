@@ -8,6 +8,7 @@ import Text from '../src/components/text'
 import Container from '../src/components/common/container'
 import Image from '../src/components/common/image'
 import YouTube from '../src/components/common/youtube'
+import Swiper from '../src/components/common/swiper'
 
 function Project() {
   return (
@@ -19,7 +20,7 @@ function Project() {
           phrase='Frase de efeito para a capa do projeto'
           fullHeight
         />
-        <Container>
+        <Container tag='section'>
           <Title titleTag='h1'>
             Título do projeto
           </Title>
@@ -36,11 +37,14 @@ function Project() {
             {/* eslint-disable-next-line max-len */}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium exercitationem reiciendis iusto, est nulla alias? Ab, odio corporis! Nulla ad mollitia recusandae voluptates eius sunt assumenda vero? Sunt, consequuntur ipsum.
           </Text>
+        </Container>
+        <Container tag='section'>
           <YouTube
             src='https://www.youtube.com/embed/Jf4yrdWQXvQ'
             alt='Apresentação do projeto'
           />
         </Container>
+        <Swiper />
       </Main>
       <Footer />
     </>

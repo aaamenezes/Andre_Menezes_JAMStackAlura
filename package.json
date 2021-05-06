@@ -18,7 +18,8 @@
     "react-is": "^16.8.0",
     "react-lottie": "^1.2.3",
     "styled-components": "^5.0.0",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "swiper": "^6.5.9"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",

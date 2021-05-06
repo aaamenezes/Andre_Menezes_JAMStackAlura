@@ -24,12 +24,8 @@ const HeroStyled = styled.section`
   margin-bottom: ${ ({ fullHeight }) => (fullHeight
     ? '0'
     : breakpointsMedia({
-      xs: css`
-      margin-bottom: 30%;
-    `,
-      md: css`
-      margin-bottom: 0;
-    `
+      xs: '30%',
+      md: 'margin-bottom: 0'
     })
   ) };
 
@@ -46,10 +42,10 @@ function Hero({ imageURL, avatarURL, fullHeight, phrase }) {
   return (
     <HeroStyled
       tag='section'
-      height={fullHeight ? 'calc(100vh - 60px - 60px)' : 'auto'}
+      height={fullHeight ? 'calc(100vh - 60px )' : 'auto'}
       phrase
     >
-      <ImageBg imageURL={imageURL} />
+      <ImageBg imageURL={imageURL} fullHeight />
       {phrase && (
         <TitleWrapper>
           <Title textAlign='right'>{phrase}</Title>

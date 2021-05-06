@@ -12,13 +12,13 @@ const ImageBgStyled = styled.img`
   ${ ({ fullHeight }) => (
     fullHeight
       ? css`height: 100%;`
-      : css`max-height: 300px;`
+      : css`max-height: 50vh;`
   ) }
 `
 
 function ImageBg({ imageURL, fullHeight }) {
   return (
-    <ImageBgStyled src={imageURL} fullHeight />
+    <ImageBgStyled src={imageURL} fullHeight={fullHeight} />
   )
 }
 
