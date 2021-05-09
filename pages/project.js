@@ -44,7 +44,9 @@ function Project() {
             alt='Apresentação do projeto'
           />
         </Container>
-        <Swiper />
+        <Container tag='section'>
+          <Swiper />
+        </Container>
       </Main>
       <Footer />
     </>

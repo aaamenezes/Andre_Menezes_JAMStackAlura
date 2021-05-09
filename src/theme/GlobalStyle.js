@@ -44,10 +44,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    margin-bottom: 30px;
-
-    &:last-child {
-      margin-bottom: 0
+    &:not(:last-child) {
+      margin-bottom: 30px;
     }
   }
 

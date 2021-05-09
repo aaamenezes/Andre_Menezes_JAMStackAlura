@@ -1,8 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import propToStyle from '../../../utils/propToStyle'
+import breakpointsMedia from '../../../utils/breakpointsMedia'
 
 const ContainerStyled = styled.div`
   width: 100%;
@@ -11,6 +12,22 @@ const ContainerStyled = styled.div`
   padding-right: 10%;
   margin-left: auto;
   margin-right: auto;
+
+  ${ ({ as }) => {
+    if (as === 'section') {
+      return css`&:not(:last-child) { ${ breakpointsMedia({
+        xs: css`margin-bottom: 50px;`,
+        sm: css`margin-bottom: 70px;`,
+        md: css`margin-bottom: 90px;`,
+        lg: css`margin-bottom: 100px;`
+      }) }}`
+    }
+
+    return undefined
+  } }
+
+  
+
   ${ propToStyle('position') };
   ${ propToStyle('display') };
   ${ propToStyle('justifyContent') };

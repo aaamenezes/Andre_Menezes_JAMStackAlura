@@ -11,7 +11,7 @@ import Form from '../src/components/form'
 import Avatar from '../src/components/common/avatar'
 import Text from '../src/components/text'
 import theme from '../src/theme'
-import GridImages from '../src/components/common/gridImages'
+import GridImages from '../src/components/contact/gridImages'
 import Numbers from '../src/components/contact/numbers'
 
 export default function Contact() {
