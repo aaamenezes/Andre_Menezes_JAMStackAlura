@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-
 import propToStyle from '../../../utils/propToStyle'
 import breakpointsMedia from '../../../utils/breakpointsMedia'
 
@@ -25,8 +24,6 @@ const ContainerStyled = styled.div`
 
     return undefined
   } }
-
-  
 
   ${ propToStyle('position') };
   ${ propToStyle('display') };

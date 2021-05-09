@@ -21,12 +21,11 @@ function CardWrapper() {
       display='grid'
       gridTemplateColumns={{
         xs: '1fr',
-        md: '1fr 1fr'
+        sm: '1fr 1fr',
+        md: '1fr 1fr 1fr'
       }}
-      gridGap={{
-        xs: '30px',
-        md: '40px'
-      }}
+      gridGap='30px'
+      padding='30px'
     >
       {projectsElements}
     </Container>
