@@ -5,10 +5,11 @@ import SwiperCore, { Navigation } from 'swiper/core'
 import 'swiper/swiper-bundle.min.css'
 import ArrowButton from './arrows'
 import theme from '../../../theme'
+import Card from '../../projects/card'
 
 SwiperCore.use([ Navigation ])
 
-function Swiper() {
+function Swiper({ projectsList }) {
   const [ screenWidth, setScreenWidth ] = useState(1)
 
   function handleResize() {
@@ -27,8 +28,8 @@ function Swiper() {
     const currentBreakpointValue = breakpointsValues.find(
       value => value < screenWidth
     )
-    const breakpointsNames = Object.entries(breakpoints)
-    const currentBreakpointName = breakpointsNames.find(
+    const breakpointsEntries = Object.entries(breakpoints)
+    const currentBreakpointName = breakpointsEntries.find(
       entry => entry[1] === currentBreakpointValue
     )[0]
 
@@ -51,6 +52,16 @@ function Swiper() {
     }
   }
 
+  const projectsElementsList = projectsList.map(project => (
+    <SwiperSlide key={project.title}>
+      <Card
+        cover={project.cover}
+        title={project.title}
+        url={project.url}
+      />
+    </SwiperSlide>
+  ))
+
   return (
     <MySwiper
       spaceBetween={setSpaceBetween()}
@@ -59,21 +70,7 @@ function Swiper() {
     >
       <ArrowButton direction='prev' />
       <ArrowButton direction='next' />
-      <SwiperSlide>
-        <img src='https://via.placeholder.com/640x480' alt='placeholder' />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src='https://via.placeholder.com/640x480' alt='placeholder' />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src='https://via.placeholder.com/640x480' alt='placeholder' />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src='https://via.placeholder.com/640x480' alt='placeholder' />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src='https://via.placeholder.com/640x480' alt='placeholder' />
-      </SwiperSlide>
+      {projectsElementsList}
     </MySwiper>
   )
 }

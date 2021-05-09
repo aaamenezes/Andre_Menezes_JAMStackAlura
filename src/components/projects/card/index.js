@@ -3,15 +3,9 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Container from '../../common/container'
-import breakpointsMedia from '../../../utils/breakpointsMedia'
 import Title from '../../title'
 
 const CardStyled = styled.article`
-  ${ breakpointsMedia({
-    xs: ({ highLight }) => highLight && 'grid-column: initial;',
-    md: ({ highLight }) => highLight && 'grid-column: 1 / 3;'
-  }) }
-
   text-align: center;
   background-color: ${ ({ theme }) => theme.color.support.white };
   box-shadow: ${ ({ theme }) => theme.boxShadow.low };
@@ -22,17 +16,8 @@ const CardStyled = styled.article`
   }
 
   a {
-    ${ breakpointsMedia({
-    xs: ({ highLight }) => (highLight ? 'display: block;' : 'display: flex;'),
-    md: ({ highLight }) => (highLight ? 'display: flex;' : 'display: block;')
-  }) };
-  }
-
-  img {
-    ${ breakpointsMedia({
-    xs: ({ highLight }) => (highLight ? 'width: 100%;' : 'width: 50%;'),
-    md: ({ highLight }) => (highLight ? 'width: 50%;' : 'width: 100%;')
-  }) }
+    display: flex;
+    flex-direction: column;
   }
 `
 
@@ -48,17 +33,16 @@ CardStyled.TextWrapper = styled(Container)`
   }
 `
 
-function Card({ cover, title, text, url, highLight }) {
+function Card({ cover, title, url }) {
   return (
-    <CardStyled highLight={highLight}>
+    <CardStyled>
       <Link href={url}>
         <a href={url}>
-          <img src={cover} alt={`${ title } - ${ text }`} />
+          <img src={cover} alt={title} />
           <CardStyled.TextWrapper>
             <Title margin='0'>
               {title}
             </Title>
-            {highLight && <p>{text}</p>}
           </CardStyled.TextWrapper>
         </a>
       </Link>
@@ -69,9 +53,7 @@ function Card({ cover, title, text, url, highLight }) {
 Card.propTypes = {
   cover: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  highLight: PropTypes.bool.isRequired
+  url: PropTypes.string.isRequired
 }
 
 export default Card

@@ -45,7 +45,44 @@ function Project() {
           />
         </Container>
         <Container tag='section'>
-          <Swiper />
+          <Swiper projectsList={[
+            {
+              cover: '/images/code.jpg',
+              title: 'Projeto 1',
+              url: '/#'
+            },
+            {
+              cover: '/images/code.jpg',
+              title: 'Projeto 2',
+              url: '/#'
+            },
+            {
+              cover: '/images/code.jpg',
+              title: 'Projeto 3',
+              url: '/#'
+            },
+            {
+              cover: '/images/code.jpg',
+              title: 'Projeto 4',
+              url: '/#'
+            },
+            {
+              cover: '/images/code.jpg',
+              title: 'Projeto 5',
+              url: '/#'
+            },
+            {
+              cover: '/images/code.jpg',
+              title: 'Projeto 6',
+              url: '/#'
+            },
+            {
+              cover: '/images/code.jpg',
+              title: 'Projeto 7',
+              url: '/#'
+            }
+          ]}
+          />
         </Container>
       </Main>
       <Footer />
