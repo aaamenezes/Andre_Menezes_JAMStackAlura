@@ -37,7 +37,7 @@ function Header() {
       tag='header'
       display='flex'
       alignItems='center'
-      width='100%'
+      maxWidth='initial'
       height='60px'
       padding='0'
       boxShadow='0 0 30px -20px black'

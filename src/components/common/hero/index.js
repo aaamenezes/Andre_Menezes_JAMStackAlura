@@ -34,6 +34,7 @@ const HeroStyled = styled.section`
 
 const TitleWrapper = styled(Container)`
   position: absolute;
+  max-width: initial;
   bottom: 0;
   color: ${ ({ theme }) => theme.color.support.white };
 `

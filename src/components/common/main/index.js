@@ -8,6 +8,7 @@ function Main({ children, ...props }) {
     <Container
       tag='main'
       padding='0'
+      maxWidth='initial'
       minHeight='calc(100vh - 60px - 60px)'
       {...props}
     >
