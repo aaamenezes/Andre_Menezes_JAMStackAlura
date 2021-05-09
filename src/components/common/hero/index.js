@@ -19,6 +19,7 @@ const background = ({ theme }) => {
 const HeroStyled = styled.section`
   position: relative;
   line-height: ${ ({ phrase }) => (phrase ? 'inherit' : '0') };
+  height: ${ ({ fullHeight }) => (fullHeight ? 'calc(100vh - 60px)' : '50vh') };
   background-color: ${ background };
 
   margin-bottom: ${ ({ fullHeight }) => (fullHeight
@@ -43,8 +44,7 @@ function Hero({ imageURL, avatarURL, fullHeight, phrase }) {
   return (
     <HeroStyled
       tag='section'
-      height={fullHeight ? 'calc(100vh - 60px )' : 'auto'}
-      phrase
+      fullHeight={fullHeight}
     >
       <ImageBg imageURL={imageURL} fullHeight />
       {phrase && (
