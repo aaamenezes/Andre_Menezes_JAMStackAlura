@@ -28,13 +28,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    margin: clamp(10px, 5%, 30px) 0 clamp(20px, 10%, 60px);
+    margin: 20px 0 40px;
     font-size: ${ ({ theme }) => theme.fontSize.title };
     text-align: center;
   }
 
   h2 {
-    margin: clamp(5px, 5%, 15px) 0 clamp(20px, 5%, 60px);
+    margin: 10px 0 30px;
     font-size: ${ ({ theme }) => theme.fontSize.subTitle };
     text-align: center;
   }

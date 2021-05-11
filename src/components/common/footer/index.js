@@ -29,7 +29,7 @@ function FooterWrapper() {
           target='_blank'
           rel='noreferrer'
         >
-          <Icon type='github' />
+          <Icon name='github' />
         </a>
       </Link>
       <Link href='https://twitter.com/aaamenezes'>
@@ -38,7 +38,7 @@ function FooterWrapper() {
           target='_blank'
           rel='noreferrer'
         >
-          <Icon type='twitter' />
+          <Icon name='twitter' />
         </a>
       </Link>
       <Link href='https://aaamenezes.medium.com/'>
@@ -47,7 +47,7 @@ function FooterWrapper() {
           target='_blank'
           rel='noreferrer'
         >
-          <Icon type='medium' />
+          <Icon name='medium' />
         </a>
       </Link>
     </Container>

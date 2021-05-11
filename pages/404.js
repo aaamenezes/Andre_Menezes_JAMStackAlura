@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from 'next/link'
 import Container from '../src/components/common/container'
 import Header from '../src/components/common/header'
 import Main from '../src/components/common/main'
 import Footer from '../src/components/common/footer'
 import Text from '../src/components/text'
+import Link from '../src/components/common/link'
 
 const Iframe = styled.iframe`
   border: 0;
@@ -26,15 +26,10 @@ function Page404() {
           <Text>
             Use a tela abaixo, ou acesse
             {' '}
-            <Link href='https://codepen.io/aaamenezes/full/GRrqYxz'>
-              <a
-                href='https://codepen.io/aaamenezes/full/GRrqYxz'
-                target='_blank'
-                rel='noreferrer'
-              >
-                diretamente aqui.
-              </a>
+            <Link href='https://codepen.io/aaamenezes/full/GRrqYxz' external>
+              diretamente aqui
             </Link>
+            .
           </Text>
           <Iframe
             src='https://codepen.io/aaamenezes/full/GRrqYxz'
