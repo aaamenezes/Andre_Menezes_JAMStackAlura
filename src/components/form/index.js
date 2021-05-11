@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
-import Button from '../common/button'
 import Error from './error'
 import Loading from './loading'
 import Success from './success'
+import LinkButton from '../common/linkButton'
 
 const FormStyled = styled.form`
   width: 100%;
@@ -130,7 +129,7 @@ function Form({ setModalDisplay }) {
             onChange={handleChange}
           />
         </FormGroupStyled>
-        <Button
+        <LinkButton
           variant='primary'
           disabled={
             contactInfo.name.length === 0
@@ -139,7 +138,7 @@ function Form({ setModalDisplay }) {
           }
         >
           Enviar
-        </Button>
+        </LinkButton>
       </FormStyled>
       {formState === formStates[1] && <Loading />}
       {formState === formStates[2] && <Success />}

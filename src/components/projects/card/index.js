@@ -1,9 +1,9 @@
 import React from 'react'
-import Link from 'next/link'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Container from '../../common/container'
 import Title from '../../title'
+import LinkButton from '../../common/linkButton'
 
 const CardStyled = styled.article`
   text-align: center;
@@ -36,16 +36,14 @@ CardStyled.TextWrapper = styled(Container)`
 function Card({ cover, title, url }) {
   return (
     <CardStyled>
-      <Link href={url}>
-        <a href={url}>
-          <img src={cover} alt={title} />
-          <CardStyled.TextWrapper>
-            <Title margin='0'>
-              {title}
-            </Title>
-          </CardStyled.TextWrapper>
-        </a>
-      </Link>
+      <LinkButton href={url}>
+        <img src={cover} alt={title} />
+        <CardStyled.TextWrapper>
+          <Title margin='0'>
+            {title}
+          </Title>
+        </CardStyled.TextWrapper>
+      </LinkButton>
     </CardStyled>
   )
 }

@@ -5,7 +5,6 @@ import Main from '../src/components/common/main'
 import Container from '../src/components/common/container'
 import Footer from '../src/components/common/footer'
 import Modal from '../src/components/common/modal'
-import Button from '../src/components/common/button'
 import Title from '../src/components/title'
 import Form from '../src/components/form'
 import Avatar from '../src/components/common/avatar'
@@ -13,6 +12,7 @@ import Text from '../src/components/text'
 import theme from '../src/theme'
 import GridImages from '../src/components/contact/gridImages'
 import Numbers from '../src/components/contact/numbers'
+import LinkButton from '../src/components/common/linkButton'
 
 export default function Contact() {
   const [ modalDisplay, setModalDisplay ] = useState(false)
@@ -147,7 +147,7 @@ export default function Contact() {
           {/* eslint-disable-next-line max-len */}
           <Text>Autem culpa necessitatibus expedita reiciendis debitis totam quis vel neque vitae nemo praesentium reprehenderit voluptatem, rerum voluptate molestias, minus in? Vero ratione rem aliquam repellendus praesentium omnis eius quidem excepturi.</Text>
 
-          <Button
+          <LinkButton
             variant='primary'
             as='button'
             display='block'
@@ -155,7 +155,7 @@ export default function Contact() {
             handleClick={setModalDisplay}
           >
             Fazer contato
-          </Button>
+          </LinkButton>
 
         </Container>
 

@@ -7,7 +7,6 @@ import Legend from './Legend'
 import Fieldset from './Fieldset'
 import FormGroup from './FormGroup'
 import Title from './Title'
-import Button from './Button'
 
 function AluraViagens() {
   const inputRadioInfos = [

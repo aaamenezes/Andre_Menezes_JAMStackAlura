@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import Container from '../container'
 import theme from '../../../theme'
-import Button from '../button'
+import LinkButton from '../linkButton'
 
 const LinksList = styled.ul`
   display: flex;
@@ -21,14 +21,14 @@ function Header() {
     { title: 'Contato', url: '/contact' }
   ]
 
-  const navbarLinks = navbarLinksList.map(page => (
+  const navbarLinksElements = navbarLinksList.map(page => (
     <li key={page.url}>
-      <Button
-        url={page.url}
+      <LinkButton
+        href={page.url}
         variant={router.pathname === page.url ? 'primary' : 'secondary'}
       >
         {page.title}
-      </Button>
+      </LinkButton>
     </li>
   ))
 
@@ -56,7 +56,7 @@ function Header() {
         }}
       >
         <LinksList>
-          {navbarLinks}
+          {navbarLinksElements}
         </LinksList>
       </Container>
     </Container>

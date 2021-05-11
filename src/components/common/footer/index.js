@@ -1,8 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
-
 import Container from '../container'
 import Icon from '../icon'
+import LinkButton from '../../common/linkButton'
 
 function FooterWrapper() {
   return (
@@ -23,33 +22,15 @@ function FooterWrapper() {
       }}
       backgroundColor='transparent'
     >
-      <Link href='https://github.com/aaamenezes'>
-        <a
-          href='https://github.com/aaamenezes'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Icon name='github' />
-        </a>
-      </Link>
-      <Link href='https://twitter.com/aaamenezes'>
-        <a
-          href='https://twitter.com/aaamenezes'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Icon name='twitter' />
-        </a>
-      </Link>
-      <Link href='https://aaamenezes.medium.com/'>
-        <a
-          href='https://aaamenezes.medium.com/'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Icon name='medium' />
-        </a>
-      </Link>
+      <LinkButton href='https://github.com/aaamenezes' external>
+        <Icon name='github' />
+      </LinkButton>
+      <LinkButton href='https://twitter.com/aaamenezes' external>
+        <Icon name='twitter' />
+      </LinkButton>
+      <LinkButton href='https://aaamenezes.medium.com/' external>
+        <Icon name='medium' />
+      </LinkButton>
     </Container>
   )
 }

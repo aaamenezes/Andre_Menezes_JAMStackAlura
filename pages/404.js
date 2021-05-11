@@ -5,7 +5,7 @@ import Header from '../src/components/common/header'
 import Main from '../src/components/common/main'
 import Footer from '../src/components/common/footer'
 import Text from '../src/components/text'
-import Link from '../src/components/common/link'
+import LinkButton from '../src/components/common/linkButton'
 
 const Iframe = styled.iframe`
   border: 0;
@@ -26,9 +26,13 @@ function Page404() {
           <Text>
             Use a tela abaixo, ou acesse
             {' '}
-            <Link href='https://codepen.io/aaamenezes/full/GRrqYxz' external>
+            <LinkButton
+              href='https://codepen.io/aaamenezes/full/GRrqYxz'
+              external
+              inline
+            >
               diretamente aqui
-            </Link>
+            </LinkButton>
             .
           </Text>
           <Iframe
