@@ -34,7 +34,7 @@ export default function Contact() {
           </Title>
         </Container>
 
-        <Container as='section' padding='10%'>
+        <Container as='section'>
           {/* eslint-disable-next-line max-len */}
           <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, rerum. Doloremque quae provident laudantium sed quas, id aliquam adipisci tempora ex itaque qui dolor reiciendis hic velit sequi omnis molestiae.</Text>
 
@@ -91,10 +91,7 @@ export default function Contact() {
           </Container>
         </Container>
 
-        <Container
-          as='section'
-          padding='10%'
-        >
+        <Container as='section'>
           <GridImages
             images={[
               {

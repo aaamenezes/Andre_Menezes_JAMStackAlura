@@ -6,7 +6,7 @@ import breakpointsMedia from '../../../utils/breakpointsMedia'
 const GridImagesStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 15%);
+  grid-template-rows: 1fr;
 
   ${ breakpointsMedia({
     xs: css`grid-gap: 10px;`,
