@@ -1,16 +1,15 @@
 import React from 'react'
 import Container from '../../common/container'
-import Card from '../card'
-import { projectsList } from './projectsList'
+import ProjectCard from '../projectCard'
+import db from '../../../../db.json'
 
 function CardWrapper() {
-  const projectsElements = projectsList.map((project, index) => (
-    <Card
+  const projectsElements = db.projects.map(project => (
+    <ProjectCard
       cover={project.cover}
       title={project.title}
       text={project.text}
       url={project.url}
-      highLight={index % 3 === 0}
       key={project.title}
     />
   ))

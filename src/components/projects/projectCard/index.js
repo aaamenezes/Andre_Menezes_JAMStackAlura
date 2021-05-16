@@ -33,11 +33,28 @@ CardStyled.TextWrapper = styled(Container)`
   }
 `
 
-function Card({ cover, title, url }) {
+CardStyled.Crop = styled.div`
+  position: relative;
+  height: 0;
+  padding-top: ${ (3 / 4) * 100 }%;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`
+
+function projectCard({ cover, title, url }) {
   return (
     <CardStyled>
-      <LinkButton href={url}>
-        <img src={cover} alt={title} />
+      <LinkButton href={url} height='100%'>
+        <CardStyled.Crop>
+          <img src={cover} alt={title} />
+        </CardStyled.Crop>
         <CardStyled.TextWrapper>
           <Title margin='0'>
             {title}
@@ -48,10 +65,10 @@ function Card({ cover, title, url }) {
   )
 }
 
-Card.propTypes = {
+projectCard.propTypes = {
   cover: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired
 }
 
-export default Card
+export default projectCard

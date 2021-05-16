@@ -88,7 +88,7 @@ function Form({ setModalDisplay }) {
       .then(convertedResponse => {
         setFormState(formStates[2])
         // eslint-disable-next-line no-console
-        console.log(convertedResponse)
+        // console.log(convertedResponse)
         closeModal()
       })
   }

@@ -7,6 +7,7 @@ import propToStyle from '../../../utils/propToStyle'
 
 const LinkButtonStyled = styled.a`
   ${ propToStyle('display') }
+  ${ propToStyle('height') }
   ${ propToStyle('margin') }
   border: none;
   cursor: pointer;
@@ -67,7 +68,6 @@ function LinkButton({
   disabled,
   ...props
 }) {
-  console.log(children, external)
   if (href) {
     return (
       <NextLink href={href} passHref>
