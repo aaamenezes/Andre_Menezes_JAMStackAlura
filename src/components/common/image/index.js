@@ -7,7 +7,7 @@ const ImageStyled = styled.img`
   ${ propToStyle('marginBottom') }
 `
 
-function Image({ src, alt, ...props }) {
+export default function Image({ src, alt, ...props }) {
   return (
     <ImageStyled src={src} alt={alt} {...props} />
   )
@@ -17,5 +17,3 @@ Image.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired
 }
-
-export default Image

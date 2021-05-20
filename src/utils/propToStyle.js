@@ -1,6 +1,6 @@
 import breakpointsMedia from './breakpointsMedia'
 
-function propToStyle(propName) {
+export default function propToStyle(propName) {
   function styleReturned(props) {
     const propValue = props[propName]
 
@@ -25,5 +25,3 @@ function propToStyle(propName) {
 
   return styleReturned
 }
-
-export default propToStyle

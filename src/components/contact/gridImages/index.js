@@ -32,7 +32,7 @@ const GridImagesStyled = styled.div`
   }
 `
 
-function GridImages({ images }) {
+export default function GridImages({ images }) {
   const imageElements = images.map(image => (
     <div key={image.alt}>
       <img src={image.url} alt={image.alt} />
@@ -49,5 +49,3 @@ function GridImages({ images }) {
 GridImages.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired
 }
-
-export default GridImages

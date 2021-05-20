@@ -7,7 +7,7 @@ const Article = styled.article`
   margin-bottom: 30px;
 `
 
-function Numbers({ number, text }) {
+export default function Numbers({ number, text }) {
   return (
     <Article>
       <Title margin='0'>{number}</Title>
@@ -20,5 +20,3 @@ Numbers.propTypes = {
   number: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 }
-
-export default Numbers

@@ -50,7 +50,7 @@ const ContainerStyled = styled.div`
   ${ propToStyle('boxShadow') };
 `
 
-function Container({ tag, children, ...props }) {
+export default function Container({ tag, children, ...props }) {
   return (
     <ContainerStyled
       as={tag}
@@ -69,5 +69,3 @@ Container.propTypes = {
 Container.defaultProps = {
   tag: 'div'
 }
-
-export default Container

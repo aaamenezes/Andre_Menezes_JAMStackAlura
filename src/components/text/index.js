@@ -6,7 +6,7 @@ const TextStyled = styled.p`
   display: block;
 `
 
-function Text({ textTag, children, ...props }) {
+export default function Text({ textTag, children, ...props }) {
   return (
     <TextStyled as={textTag} {...props}>
       {children}
@@ -22,5 +22,3 @@ Text.propTypes = {
 Text.defaultProps = {
   textTag: 'p'
 }
-
-export default Text

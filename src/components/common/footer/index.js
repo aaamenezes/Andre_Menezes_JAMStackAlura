@@ -3,7 +3,7 @@ import Container from '../container'
 import Icon from '../icon'
 import LinkButton from '../../common/linkButton'
 
-function FooterWrapper() {
+export default function FooterWrapper() {
   return (
     <Container
       tag='footer'
@@ -34,5 +34,3 @@ function FooterWrapper() {
     </Container>
   )
 }
-
-export default FooterWrapper

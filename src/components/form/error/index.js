@@ -11,7 +11,7 @@ const ErrorStyled = styled.div`
   left: 50%;
 `
 
-function Error() {
+export default function Error() {
   return (
     <ErrorStyled>
       <Player
@@ -23,5 +23,3 @@ function Error() {
     </ErrorStyled>
   )
 }
-
-export default Error

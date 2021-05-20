@@ -41,7 +41,7 @@ const InputStyled = styled.input`
   }
 `
 
-function Form({ setModalDisplay }) {
+export default function Form({ setModalDisplay }) {
   const [ contactInfo, setContactInfo ] = useState({
     name: '',
     email: '',
@@ -149,5 +149,3 @@ function Form({ setModalDisplay }) {
 Form.propTypes = {
   setModalDisplay: PropTypes.func.isRequired
 }
-
-export default Form

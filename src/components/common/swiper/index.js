@@ -9,7 +9,7 @@ import Card from '../../projects/card'
 
 SwiperCore.use([ Navigation ])
 
-function Swiper({ projectsList }) {
+export default function Swiper({ projectsList }) {
   const [ screenWidth, setScreenWidth ] = useState(1)
 
   function handleResize() {
@@ -74,5 +74,3 @@ function Swiper({ projectsList }) {
     </MySwiper>
   )
 }
-
-export default Swiper

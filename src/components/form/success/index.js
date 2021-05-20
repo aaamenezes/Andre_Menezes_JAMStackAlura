@@ -11,7 +11,7 @@ const SuccessStyled = styled.div`
   left: 50%;
 `
 
-function Success() {
+export default function Success() {
   return (
     <SuccessStyled>
       <Player
@@ -23,5 +23,3 @@ function Success() {
     </SuccessStyled>
   )
 }
-
-export default Success

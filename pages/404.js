@@ -13,7 +13,7 @@ const Iframe = styled.iframe`
   height: 90vh;
 `
 
-function Page404() {
+export default function Page404() {
   return (
     <>
       <Header />
@@ -45,5 +45,3 @@ function Page404() {
     </>
   )
 }
-
-export default Page404

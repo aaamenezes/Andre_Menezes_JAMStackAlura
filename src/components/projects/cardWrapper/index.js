@@ -3,7 +3,7 @@ import Container from '../../common/container'
 import ProjectCard from '../projectCard'
 import db from '../../../../db.json'
 
-function CardWrapper() {
+export default function CardWrapper() {
   const projectsElements = db.projects.map(project => (
     <ProjectCard
       cover={project.cover}
@@ -30,5 +30,3 @@ function CardWrapper() {
     </Container>
   )
 }
-
-export default CardWrapper

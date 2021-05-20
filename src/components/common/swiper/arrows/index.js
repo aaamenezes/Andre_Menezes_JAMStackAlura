@@ -7,12 +7,10 @@ const ArrowButtonStyled = styled.div`
   pointer-events: none;
 `
 
-function ArrowButton({ direction }) {
+export default function ArrowButton({ direction }) {
   return <ArrowButtonStyled className={`swiper-button-${ direction }`} />
 }
 
 ArrowButton.propTypes = {
   direction: PropTypes.string.isRequired
 }
-
-export default ArrowButton

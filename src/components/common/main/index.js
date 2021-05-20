@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Container from '../container'
 
-function Main({ children, ...props }) {
+export default function Main({ children, ...props }) {
   return (
     <Container
       tag='main'
@@ -20,5 +20,3 @@ function Main({ children, ...props }) {
 Main.propTypes = {
   children: PropTypes.node.isRequired
 }
-
-export default Main

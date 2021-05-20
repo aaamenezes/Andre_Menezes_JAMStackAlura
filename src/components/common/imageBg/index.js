@@ -16,7 +16,7 @@ const ImageBgStyled = styled.img`
   ) }
 `
 
-function ImageBg({ imageURL, fullHeight }) {
+export default function ImageBg({ imageURL, fullHeight }) {
   return (
     <ImageBgStyled src={imageURL} fullHeight={fullHeight} />
   )
@@ -30,5 +30,3 @@ ImageBg.propTypes = {
 ImageBg.defaultProps = {
   fullHeight: false
 }
-
-export default ImageBg

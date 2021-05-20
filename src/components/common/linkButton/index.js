@@ -62,7 +62,7 @@ const LinkButtonStyled = styled.a`
   }
 `
 
-function LinkButton({
+export default function LinkButton({
   href,
   external,
   inline,
@@ -121,5 +121,3 @@ LinkButton.defaultProps = {
   handleClick: null,
   disabled: false
 }
-
-export default LinkButton

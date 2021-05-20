@@ -14,7 +14,7 @@ const FormGroupStyled = styled.div`
   }
 `
 
-function FormGroup({ info, label, inputType }) {
+export default function FormGroup({ info, label, inputType }) {
   return (
     <FormGroupStyled>
       <label htmlFor={info}>
@@ -34,5 +34,3 @@ FormGroup.propTypes = {
 FormGroup.defaultProps = {
   inputType: 'text'
 }
-
-export default FormGroup

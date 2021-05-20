@@ -10,7 +10,7 @@ import Image from '../src/components/common/image'
 import YouTube from '../src/components/common/youtube'
 import Swiper from '../src/components/common/swiper'
 
-function Project() {
+export default function Project() {
   return (
     <>
       <Header />
@@ -89,5 +89,3 @@ function Project() {
     </>
   )
 }
-
-export default Project

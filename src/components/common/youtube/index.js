@@ -8,7 +8,7 @@ const YouTubeWrapper = styled.iframe`
   border: none;
 `
 
-function YouTube({ src, alt }) {
+export default function YouTube({ src, alt }) {
   return (
     <YouTubeWrapper
       src={src}
@@ -30,5 +30,3 @@ YouTube.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired
 }
-
-export default YouTube

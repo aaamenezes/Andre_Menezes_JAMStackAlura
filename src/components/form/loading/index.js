@@ -11,7 +11,7 @@ const LoadingStyled = styled.div`
   left: 50%;
 `
 
-function Loading() {
+export default function Loading() {
   return (
     <LoadingStyled>
       <Player
@@ -23,5 +23,3 @@ function Loading() {
     </LoadingStyled>
   )
 }
-
-export default Loading

@@ -24,7 +24,7 @@ const InputStyled = styled.input`
   }
 `
 
-function Input({ inputType, info }) {
+export default function Input({ inputType, info }) {
   const [ value, setValue ] = useState('')
 
   function handleChange(event) {
@@ -63,5 +63,3 @@ Input.propTypes = {
 Input.defaultProps = {
   inputType: 'text'
 }
-
-export default Input

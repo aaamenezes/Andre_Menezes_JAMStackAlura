@@ -39,7 +39,7 @@ const ModalStyled = styled(Container)`
 
 const LockScroll = createGlobalStyle` body { overflow: hidden; } `
 
-function Modal({ setModalDisplay, children }) {
+export default function Modal({ setModalDisplay, children }) {
   return (
     <>
       <LockScroll />
@@ -55,5 +55,3 @@ Modal.propTypes = {
   setModalDisplay: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired
 }
-
-export default Modal

@@ -12,7 +12,7 @@ const LinksList = styled.ul`
   align-items: center;
 `
 
-function Header() {
+export default function Header() {
   const router = useRouter()
 
   const navbarLinksList = [
@@ -62,5 +62,3 @@ function Header() {
     </Container>
   )
 }
-
-export default Header

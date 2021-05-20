@@ -48,7 +48,7 @@ CardStyled.Crop = styled.div`
   }
 `
 
-function projectCard({ cover, title, url }) {
+export default function projectCard({ cover, title, url }) {
   return (
     <CardStyled>
       <LinkButton href={url} height='100%'>
@@ -70,5 +70,3 @@ projectCard.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired
 }
-
-export default projectCard

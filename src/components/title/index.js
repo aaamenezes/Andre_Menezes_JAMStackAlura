@@ -8,7 +8,7 @@ const TitleStyled = styled.h2`
   ${ propToStyle('textAlign') }
 `
 
-function Title({ titleTag, children, ...props }) {
+export default function Title({ titleTag, children, ...props }) {
   return (
     <TitleStyled as={titleTag} {...props}>
       {children}
@@ -24,5 +24,3 @@ Title.propTypes = {
 Title.defaultProps = {
   titleTag: 'h2'
 }
-
-export default Title

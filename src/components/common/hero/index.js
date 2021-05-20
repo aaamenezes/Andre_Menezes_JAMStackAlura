@@ -40,7 +40,7 @@ const TitleWrapper = styled(Container)`
   color: ${ ({ theme }) => theme.color.support.white };
 `
 
-function Hero({ imageURL, avatarURL, fullHeight, phrase }) {
+export default function Hero({ imageURL, avatarURL, fullHeight, phrase }) {
   return (
     <HeroStyled
       tag='section'
@@ -86,5 +86,3 @@ Hero.defaultProps = {
   fullHeight: false,
   phrase: ''
 }
-
-export default Hero

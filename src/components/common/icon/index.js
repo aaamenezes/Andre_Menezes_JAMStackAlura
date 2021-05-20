@@ -21,7 +21,7 @@ const IconStyled = styled.i`
   }
 `
 
-function Icon({ name, inline }) {
+export default function Icon({ name, inline }) {
   switch (name) {
   case 'bars':
     return <IconStyled className='fas fa-bars' />
@@ -37,5 +37,3 @@ function Icon({ name, inline }) {
     return undefined
   }
 }
-
-export default Icon

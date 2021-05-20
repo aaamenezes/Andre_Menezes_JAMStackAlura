@@ -3,7 +3,7 @@ import theme from '../theme'
 
 const { breakpoints } = theme
 
-function breakpointsMedia(cssByBreakpoints) {
+export default function breakpointsMedia(cssByBreakpoints) {
   const breakpointsNames = Object.keys(cssByBreakpoints)
   return breakpointsNames.map(breakpointName => css`
       @media screen and (min-width: ${ breakpoints[breakpointName] }px) {
@@ -11,5 +11,3 @@ function breakpointsMedia(cssByBreakpoints) {
       }
     `)
 }
-
-export default breakpointsMedia
