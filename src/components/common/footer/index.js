@@ -3,7 +3,7 @@ import Container from '../container'
 import Icon from '../icon'
 import LinkButton from '../../common/linkButton'
 
-export default function FooterWrapper() {
+export default function Footer() {
   return (
     <Container
       tag='footer'

@@ -15,41 +15,36 @@ export default function GithubRepositories({ githubRepositories }) {
     'aaamenezes', 'instalura-base'
   ]
 
-  console.log('githubRepositories', githubRepositories)
+  const respositoriesElements = githubRepositories.map(repository => {
+    const isRespositoryValid = invalidRepositories
+      .map(invalid => invalid !== repository.name)
+      .reduce((current, total) => current && total)
 
-  // const respositoriesElements = githubRepositories.map(repository => {
-  //   const isRespositoryValid = invalidRepositories
-  //     .map(invalid => invalid !== repository.name)
-  //     .reduce((current, total) => current && total)
+    const repositoryName = repository.name
+      .split('-').join(' ')
+      .split('_').join(' ')
 
-  //   const repositoryName = repository.name
-  //     .replaceAll('-', ' ')
-  //     .replaceAll('_', ' ')
-  //     .split(' ')
-  //     .map(word => word[0].toUpperCase() + word.substring(1))
-  //     .join(' ')
+    if (isRespositoryValid) {
+      return (
+        <RepositoryItem key={repository.name}>
+          <Title titleTag='h3'>
+            <LinkButton href={repository.svn_url} external inline>
+              {repositoryName}
+            </LinkButton>
+          </Title>
+          <Text>{repository.description || repositoryName}</Text>
+        </RepositoryItem>
+      )
+    }
 
-  //   if (isRespositoryValid) {
-  //     return (
-  //       <RepositoryItem key={repository.name}>
-  //         <Title titleTag='h3'>
-  //           <LinkButton href={repository.svn_url} external inline>
-  //             {repositoryName}
-  //           </LinkButton>
-  //         </Title>
-  //         <Text>{repository.description}</Text>
-  //       </RepositoryItem>
-  //     )
-  //   }
-
-  //   return undefined
-  // })
+    return undefined
+  })
 
   return (
     <Container as='section'>
       <Title>Meus Repositórios</Title>
       <ul>
-        {/* {respositoriesElements} */}
+        {respositoriesElements}
       </ul>
     </Container>
   )
