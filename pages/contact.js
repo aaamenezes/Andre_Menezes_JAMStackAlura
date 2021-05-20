@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import Header from '../src/components/common/header'
 import Main from '../src/components/common/main'
@@ -13,8 +14,9 @@ import theme from '../src/theme'
 import GridImages from '../src/components/contact/gridImages'
 import Numbers from '../src/components/contact/numbers'
 import LinkButton from '../src/components/common/linkButton'
+import GithubRepositories from '../src/components/contact/repositories'
 
-export default function Contact() {
+export default function Contact({ githubRepositories }) {
   const [ modalDisplay, setModalDisplay ] = useState(false)
 
   return (
@@ -139,6 +141,8 @@ export default function Contact() {
           <Numbers number='+30' text='Contribuições para projetos opensource' />
         </Container>
 
+        <GithubRepositories githubRepositories={githubRepositories} />
+
         <Container as='section'>
           <Title>Entre em contato</Title>
           {/* eslint-disable-next-line max-len */}
@@ -174,4 +178,16 @@ export default function Contact() {
       <Footer />
     </>
   )
+}
+
+Contact.propTypes = {
+  githubRepositories: PropTypes.arrayOf(PropTypes.object).isRequired
+}
+
+export async function getStaticProps() {
+  const githubURL = 'https://api.github.com/users/aaamenezes/repos'
+  const githubRepositories = await fetch(githubURL)
+    .then(serverResponse => serverResponse.json())
+    .then(convertedResponse => convertedResponse)
+  return { props: { githubRepositories } }
 }

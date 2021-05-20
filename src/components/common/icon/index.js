@@ -8,7 +8,7 @@ const IconStyled = styled.i`
       : ({ theme }) => theme.fontSize.subTitle
   ) };
 
-  color: ${ ({ theme }) => theme.color.primary.normal };
+  color: ${ ({ theme }) => theme.color.primary.dark };
   transition: ${ ({ theme }) => theme.transition.medium };
   cursor: pointer;
 

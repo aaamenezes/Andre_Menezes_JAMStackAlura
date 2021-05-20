@@ -51,6 +51,10 @@ const LinkButtonStyled = styled.a`
     return undefined
   } }
 
+  ${ ({ inline }) => (inline && css`&:hover {
+      text-decoration: underline;
+  }`) }
+
   &[disabled] {
     opacity: ${ ({ theme }) => theme.opacity.transparent };
     cursor: not-allowed;
