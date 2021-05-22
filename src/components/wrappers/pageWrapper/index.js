@@ -5,22 +5,29 @@ import Main from '../../common/main'
 import Footer from '../../common/footer'
 import SEO from '../../../seo'
 
-export default function PageWrapper({ children, seoProps }) {
+export default function PageWrapper({ seoProps, header, footer, children }) {
   return (
     <>
       <SEO {...seoProps} />
-      <Header />
+      {header && <Header />}
       <Main padding='0'>
         {children}
       </Main>
-      <Footer />
+      {footer && <Footer />}
     </>
   )
 }
 
 PageWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
   seoProps: PropTypes.shape({
     pageTitle: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  header: PropTypes.bool,
+  footer: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+}
+
+PageWrapper.defaultProps = {
+  header: false,
+  footer: false
 }

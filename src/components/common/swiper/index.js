@@ -5,7 +5,7 @@ import SwiperCore, { Navigation } from 'swiper/core'
 import 'swiper/swiper-bundle.min.css'
 import ArrowButton from './arrows'
 import theme from '../../../theme'
-import Card from '../../projects/card'
+import Card from '../../projects/projectCard'
 
 SwiperCore.use([ Navigation ])
 

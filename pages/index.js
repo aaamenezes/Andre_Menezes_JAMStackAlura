@@ -6,9 +6,12 @@ import PageWrapper from '../src/components/wrappers/pageWrapper'
 
 export default function Home() {
   return (
-    <PageWrapper seoProps={{
-      pageTitle: 'Home'
-    }}
+    <PageWrapper
+      seoProps={{
+        pageTitle: 'Home'
+      }}
+      header
+      footer
     >
       <Hero imageURL='/images/code.jpg' avatarURL='/images/avatar.jpeg' />
       <Container tag='section'>

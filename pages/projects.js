@@ -5,9 +5,12 @@ import PageWrapper from '../src/components/wrappers/pageWrapper'
 
 export default function Projects() {
   return (
-    <PageWrapper seoProps={{
-      pageTitle: 'Projetos'
-    }}
+    <PageWrapper
+      seoProps={{
+        pageTitle: 'Projetos Front-end'
+      }}
+      header
+      footer
     >
       <Container tag='section'>
         <h1>Projetos</h1>

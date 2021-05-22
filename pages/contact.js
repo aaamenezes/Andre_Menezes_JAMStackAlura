@@ -17,9 +17,12 @@ export default function Contact({ githubRepositories }) {
   const [ modalDisplay, setModalDisplay ] = useState(false)
 
   return (
-    <PageWrapper seoProps={{
-      pageTitle: 'Contato'
-    }}
+    <PageWrapper
+      seoProps={{
+        pageTitle: 'Contato'
+      }}
+      header
+      footer
     >
       <Container as='section'>
 
