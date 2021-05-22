@@ -24,7 +24,7 @@ PageWrapper.propTypes = {
   }).isRequired,
   header: PropTypes.bool,
   footer: PropTypes.bool,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 PageWrapper.defaultProps = {

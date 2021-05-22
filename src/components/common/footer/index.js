@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '../container'
 import Icon from '../icon'
-import LinkButton from '../../common/linkButton'
+import LinkButton from '../linkButton'
 
 export default function Footer() {
   return (

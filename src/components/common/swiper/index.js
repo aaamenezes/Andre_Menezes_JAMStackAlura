@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { Swiper as MySwiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper/core'
 import 'swiper/swiper-bundle.min.css'
@@ -73,4 +73,8 @@ export default function Swiper({ projectsList }) {
       {projectsElementsList}
     </MySwiper>
   )
+}
+
+Swiper.propTypes = {
+  projectsList: PropTypes.arrayOf(PropTypes.object).isRequired
 }

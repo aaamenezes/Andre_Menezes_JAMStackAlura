@@ -1,7 +1,4 @@
 import React from 'react'
-import Header from '../src/components/common/header'
-import Main from '../src/components/common/main'
-import Footer from '../src/components/common/footer'
 import Hero from '../src/components/common/hero'
 import Title from '../src/components/title'
 import Text from '../src/components/text'
