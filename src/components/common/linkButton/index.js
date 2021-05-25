@@ -68,6 +68,7 @@ export default function LinkButton({
   inline,
   variant,
   children,
+  type,
   handleClick,
   disabled,
   ...props
@@ -92,6 +93,7 @@ export default function LinkButton({
 
   return (
     <LinkButtonStyled
+      type={type}
       variant={variant}
       as='button'
       disabled={disabled}
@@ -109,6 +111,7 @@ LinkButton.propTypes = {
   inline: PropTypes.bool,
   variant: PropTypes.string,
   children: PropTypes.node.isRequired,
+  type: PropTypes.string,
   handleClick: PropTypes.func,
   disabled: PropTypes.bool
 }
@@ -118,6 +121,7 @@ LinkButton.defaultProps = {
   external: false,
   inline: false,
   variant: undefined,
+  type: null,
   handleClick: null,
   disabled: false
 }

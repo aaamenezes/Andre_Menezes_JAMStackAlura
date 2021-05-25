@@ -62,7 +62,7 @@ export default function Form({ setModalDisplay }) {
   function closeModal() {
     setTimeout(() => {
       setModalDisplay(false)
-    }, 6000)
+    }, 3000)
   }
 
   function handleSubmit(event) {
@@ -130,10 +130,11 @@ export default function Form({ setModalDisplay }) {
         </FormGroupStyled>
         <LinkButton
           variant='primary'
+          type='submit'
           disabled={
             contactInfo.name.length === 0
-          || contactInfo.email.length === 0
-          || contactInfo.message.length === 0
+            || contactInfo.email.length === 0
+            || contactInfo.message.length === 0
           }
         >
           Enviar

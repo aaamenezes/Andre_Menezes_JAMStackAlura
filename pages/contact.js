@@ -154,7 +154,7 @@ export default function Contact({ githubRepositories }) {
 
         <LinkButton
           variant='primary'
-          as='button'
+          type='button'
           display='block'
           margin='auto auto 30px'
           handleClick={setModalDisplay}
