@@ -7,11 +7,16 @@
     "start": "next start",
     "export": "next build && next export",
     "lint": "eslint --ignore-path .gitignore .",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "test:integration:open": "cypress open"
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.0.4",
+    "@types/jest": "^26.0.23",
+    "eslint-plugin-jest": "^24.3.6",
     "framer-motion": "^3.10.0",
+    "jest": "^27.0.1",
     "next": "latest",
     "prop-types": "^15.7.2",
     "react": "^16.8.0",
