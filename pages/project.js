@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { GraphQLClient, gql } from 'graphql-request'
 import Hero from '../src/components/common/hero'
 import Title from '../src/components/title'
 import Text from '../src/components/text'
@@ -8,7 +10,66 @@ import YouTube from '../src/components/common/youtube'
 import Swiper from '../src/components/common/swiper'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 
-export default function Project() {
+export async function getStaticProps() {
+  const TOKEN = '95556889e2d0b7876943609fd9a266'
+  const DatoCMSURL = 'https://graphql.datocms.com/'
+
+  const client = new GraphQLClient(DatoCMSURL, {
+    headers: {
+      Authorization: `Bearer ${ TOKEN }`
+      // 'Content-Type': 'application/json', // test
+      // Accept: 'application/json' // test
+    }
+  })
+
+  const query = gql`
+    query {
+      project {
+        coverImage(locale: pt_BR) {
+          url
+          alt
+        }
+        phrase
+        projectTitle
+        firstParagraph
+        bodyImage(locale: pt_BR) {
+          url
+          alt
+        }
+        secondParagraph
+        bodyVideo {
+          title
+          url
+        }
+      }
+    }
+  `
+
+  const data = await client.request(query)
+
+  return {
+    props: {
+      data
+    }
+  }
+}
+
+export default function Project(props) {
+  const { data } = props
+  const { project } = data
+
+  const {
+    coverImage,
+    projectTitle,
+    phrase,
+    firstParagraph,
+    bodyImage,
+    secondParagraph,
+    bodyVideo
+  } = project
+
+  // console.log('project', project)
+
   return (
     <PageWrapper
       seoProps={{
@@ -18,32 +79,35 @@ export default function Project() {
       footer
     >
       <Hero
-        imageURL='/images/project-cover.jpg'
-        phrase='Frase de efeito para a capa do projeto'
+        imageURL={coverImage.url}
+        imageAlt={`${ projectTitle } - ${ phrase }`}
+        phrase={phrase}
         fullHeight
       />
       <Container tag='section'>
         <Title titleTag='h1'>
-          Título do projeto
+          {projectTitle}
         </Title>
-        <Text>
-          {/* eslint-disable-next-line max-len */}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium exercitationem reiciendis iusto, est nulla alias? Ab, odio corporis! Nulla ad mollitia recusandae voluptates eius sunt assumenda vero? Sunt, consequuntur ipsum.
-        </Text>
+        <Text
+          dangerouslySetInnerHTML={{
+            __html: firstParagraph
+          }}
+        />
         <Image
-          src='/images/600.png'
-          alt='Project Image'
+          src={bodyImage.url}
+          alt={bodyImage.alt}
           marginBottom='30px'
         />
-        <Text>
-          {/* eslint-disable-next-line max-len */}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium exercitationem reiciendis iusto, est nulla alias? Ab, odio corporis! Nulla ad mollitia recusandae voluptates eius sunt assumenda vero? Sunt, consequuntur ipsum.
-        </Text>
+        <Text
+          dangerouslySetInnerHTML={{
+            __html: secondParagraph
+          }}
+        />
       </Container>
       <Container tag='section'>
         <YouTube
-          src='https://www.youtube.com/embed/Jf4yrdWQXvQ'
-          alt='Apresentação do projeto'
+          src={bodyVideo.url.replace('watch?v=', 'embed/').split('&')[0]}
+          alt={bodyVideo.title}
         />
       </Container>
       <Container tag='section'>
@@ -88,4 +152,9 @@ export default function Project() {
       </Container>
     </PageWrapper>
   )
+}
+
+Project.propTypes = {
+  data: PropTypes.objectOf(PropTypes.objectOf).isRequired,
+  project: PropTypes.objectOf(PropTypes.objectOf).isRequired
 }

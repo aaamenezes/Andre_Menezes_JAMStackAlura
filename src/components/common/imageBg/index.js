@@ -16,14 +16,19 @@ const ImageBgStyled = styled.img`
   ) }
 `
 
-export default function ImageBg({ imageURL, fullHeight }) {
+export default function ImageBg({ imageURL, imageAlt, fullHeight }) {
   return (
-    <ImageBgStyled src={imageURL} fullHeight={fullHeight} />
+    <ImageBgStyled
+      src={imageURL}
+      fullHeight={fullHeight}
+      alt={imageAlt}
+    />
   )
 }
 
 ImageBg.propTypes = {
   imageURL: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
   fullHeight: PropTypes.bool
 }
 

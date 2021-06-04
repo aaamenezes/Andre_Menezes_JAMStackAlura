@@ -40,13 +40,20 @@ const TitleWrapper = styled(Container)`
   color: ${ ({ theme }) => theme.color.support.white };
 `
 
-export default function Hero({ imageURL, avatarURL, fullHeight, phrase }) {
+export default function Hero({
+  imageURL,
+  imageAlt,
+  avatarURL,
+  fullHeight,
+  phrase
+}) {
   return (
     <HeroStyled
       tag='section'
       fullHeight={fullHeight}
+      phrase
     >
-      <ImageBg imageURL={imageURL} fullHeight />
+      <ImageBg imageURL={imageURL} imageAlt={imageAlt} fullHeight />
       {phrase && (
         <TitleWrapper>
           <Title textAlign='right'>{phrase}</Title>
@@ -76,6 +83,7 @@ export default function Hero({ imageURL, avatarURL, fullHeight, phrase }) {
 
 Hero.propTypes = {
   imageURL: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
   avatarURL: PropTypes.string,
   fullHeight: PropTypes.bool,
   phrase: PropTypes.string
