@@ -68,7 +68,6 @@ export default function Project(props) {
     bodyVideo
   } = project
 
-
   return (
     <PageWrapper
       seoProps={{

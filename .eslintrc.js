@@ -61,6 +61,7 @@ module.exports = {
       env: {
         jest: true
       },
+      // eslint-disable-next-line global-require
       ...require('eslint-plugin-jest').configs.recommended
     }
   ]
