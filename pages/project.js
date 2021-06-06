@@ -11,7 +11,7 @@ import Swiper from '../src/components/common/swiper'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 
 export async function getStaticProps() {
-  const TOKEN = '95556889e2d0b7876943609fd9a266'
+  const TOKEN = process.env.DATO_CMS_TOKEN
   const DatoCMSURL = 'https://graphql.datocms.com/'
 
   const client = new GraphQLClient(DatoCMSURL, {
@@ -68,7 +68,6 @@ export default function Project(props) {
     bodyVideo
   } = project
 
-  // console.log('project', project)
 
   return (
     <PageWrapper
@@ -155,6 +154,5 @@ export default function Project(props) {
 }
 
 Project.propTypes = {
-  data: PropTypes.objectOf(PropTypes.objectOf).isRequired,
-  project: PropTypes.objectOf(PropTypes.objectOf).isRequired
+  data: PropTypes.objectOf(PropTypes.objectOf).isRequired
 }

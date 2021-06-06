@@ -16,9 +16,10 @@ export default function Text({ textTag, children, ...props }) {
 
 Text.propTypes = {
   textTag: PropTypes.string,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node
 }
 
 Text.defaultProps = {
-  textTag: 'p'
+  textTag: 'p',
+  children: undefined
 }
