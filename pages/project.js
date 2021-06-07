@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { GraphQLClient, gql } from 'graphql-request'
 import Hero from '../src/components/common/hero'
 import Title from '../src/components/title'
 import Text from '../src/components/text'
@@ -9,20 +8,10 @@ import Image from '../src/components/common/image'
 import YouTube from '../src/components/common/youtube'
 import Swiper from '../src/components/common/swiper'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
+import { getContent } from '../src/utils/getContent'
 
 export async function getStaticProps() {
-  const TOKEN = process.env.DATO_CMS_TOKEN
-  const DatoCMSURL = 'https://graphql.datocms.com/'
-
-  const client = new GraphQLClient(DatoCMSURL, {
-    headers: {
-      Authorization: `Bearer ${ TOKEN }`
-      // 'Content-Type': 'application/json', // test
-      // Accept: 'application/json' // test
-    }
-  })
-
-  const query = gql`
+  const query = `
     query {
       project {
         coverImage(locale: pt_BR) {
@@ -45,7 +34,7 @@ export async function getStaticProps() {
     }
   `
 
-  const data = await client.request(query)
+  const data = await getContent(query)
 
   return {
     props: {
@@ -86,21 +75,13 @@ export default function Project(props) {
         <Title titleTag='h1'>
           {projectTitle}
         </Title>
-        <Text
-          dangerouslySetInnerHTML={{
-            __html: firstParagraph
-          }}
-        />
+        <Text external>{firstParagraph}</Text>
         <Image
           src={bodyImage.url}
           alt={bodyImage.alt}
           marginBottom='30px'
         />
-        <Text
-          dangerouslySetInnerHTML={{
-            __html: secondParagraph
-          }}
-        />
+        <Text external>{secondParagraph}</Text>
       </Container>
       <Container tag='section'>
         <YouTube

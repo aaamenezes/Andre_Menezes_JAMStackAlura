@@ -50,7 +50,11 @@ module.exports = {
     // Permitir spread operator
     'react/jsx-props-no-spreading': 'off',
     // Label não se contenta com 'htmlFor' e exige 'for' que é palavra reservada
-    'jsx-a11y/label-has-associated-control': [ 'error', { assert: 'either' } ]
+    'jsx-a11y/label-has-associated-control': [ 'error', { assert: 'either' } ],
+    // Permitir operação unária
+    'no-plusplus': 'off',
+    // Permitir inserção de HTML externo no React por causa do DatoCMS
+    'react/no-danger': 'off'
   },
   overrides: [
     {
