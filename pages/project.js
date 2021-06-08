@@ -10,7 +10,7 @@ import Swiper from '../src/components/common/swiper'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview }) {
   const query = `
     query {
       project {
@@ -34,7 +34,7 @@ export async function getStaticProps() {
     }
   `
 
-  const data = await getContent(query)
+  const data = await getContent(query, preview)
 
   return {
     props: {
