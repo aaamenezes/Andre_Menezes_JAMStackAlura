@@ -1,16 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Container from '../../common/container'
 import ProjectCard from '../projectCard'
-import db from '../../../../db.json'
 
-export default function CardWrapper() {
-  const projectsElements = db.projects.map(project => (
+export default function CardWrapper({ projectsList }) {
+  const projectsElements = projectsList.map(project => (
     <ProjectCard
-      cover={project.cover}
-      title={project.title}
-      text={project.text}
+      cover={project.coverImage.url}
+      title={project.projectTitle}
       url={project.url}
-      key={project.title}
+      key={project.projectTitle}
     />
   ))
 
@@ -29,4 +28,8 @@ export default function CardWrapper() {
       {projectsElements}
     </Container>
   )
+}
+
+CardWrapper.propTypes = {
+  projectsList: PropTypes.arrayOf(PropTypes.object).isRequired
 }

@@ -37,12 +37,7 @@ export default function Home(props) {
   const { data } = props
   const { home } = data
 
-  const {
-    coverPicture,
-    portfolioName,
-    portfolioOwner,
-    profilePicture
-  } = home
+  const { coverPicture, portfolioName, portfolioOwner, profilePicture } = home
 
   return (
     <PageWrapper

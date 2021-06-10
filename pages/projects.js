@@ -1,9 +1,45 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Container from '../src/components/common/container'
 import CardWrapper from '../src/components/projects/cardWrapper'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
+import { getContent } from '../src/utils/getContent'
+import Title from '../src/components/title'
+import Text from '../src/components/text'
 
-export default function Projects() {
+export async function getStaticProps({ preview }) {
+  const query = `
+    query {
+      projectsPage(locale: pt_BR) {
+        pageTitle
+        pageDescription
+      }
+      allProjects {
+        coverImage {
+          url
+          alt
+        }
+        projectTitle
+        url
+      }
+    }
+  `
+
+  const data = await getContent(query, preview)
+
+  return {
+    props: {
+      data
+    }
+  }
+}
+
+export default function Projects(props) {
+  const { data } = props
+  const { projectsPage, allProjects } = data
+
+  const { pageTitle, pageDescription } = projectsPage
+
   return (
     <PageWrapper
       seoProps={{
@@ -13,11 +49,18 @@ export default function Projects() {
       footer
     >
       <Container tag='section'>
-        <h1>Projetos</h1>
-        {/* eslint-disable-next-line max-len */}
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab aperiam non libero. Laborum libero iste mollitia nisi ducimus sequi quas dolorum cupiditate quibusdam, tenetur veritatis amet obcaecati fugit animi minima.</p>
+        <Title titleTag='h1'>
+          {pageTitle}
+        </Title>
+        <Text external>
+          {pageDescription}
+        </Text>
       </Container>
-      <CardWrapper />
+      <CardWrapper projectsList={allProjects} />
     </PageWrapper>
   )
+}
+
+Projects.propTypes = {
+  data: PropTypes.objectOf(PropTypes.objectOf).isRequired
 }
