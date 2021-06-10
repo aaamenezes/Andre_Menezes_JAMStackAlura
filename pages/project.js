@@ -77,7 +77,7 @@ export default function Project(props) {
         </Title>
         <Text external>{firstParagraph}</Text>
         <Image
-          src={bodyImage.url}
+          src={bodyImage?.url}
           alt={bodyImage.alt}
           marginBottom='30px'
         />
