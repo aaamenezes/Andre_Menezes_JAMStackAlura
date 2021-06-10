@@ -56,13 +56,13 @@ const ImageStyled = styled.img`
   ${ propToStyle('top') }
 `
 
-export default function Avatar({ imageUrl, position, ...props }) {
+export default function Avatar({ imageUrl, imageAlt, position, ...props }) {
   return (
     <AvatarStyled position={position} {...props}>
       <Crop positioned={position === 'absolute'}>
         <ImageStyled
           src={imageUrl}
-          alt='imagem de perfil'
+          alt={imageAlt}
           positioned={position === 'absolute'}
         />
       </Crop>
@@ -72,6 +72,7 @@ export default function Avatar({ imageUrl, position, ...props }) {
 
 Avatar.propTypes = {
   imageUrl: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
   position: PropTypes.string
 }
 

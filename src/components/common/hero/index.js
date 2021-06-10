@@ -44,6 +44,7 @@ export default function Hero({
   imageURL,
   imageAlt,
   avatarURL,
+  avatarAlt,
   fullHeight,
   phrase
 }) {
@@ -62,6 +63,7 @@ export default function Hero({
       {avatarURL && (
         <Avatar
           imageUrl={avatarURL}
+          imageAlt={avatarAlt}
           position='absolute'
           transform={{
             xs: 'translate(-50%, -50%)',
@@ -85,6 +87,7 @@ Hero.propTypes = {
   imageURL: PropTypes.string.isRequired,
   imageAlt: PropTypes.string.isRequired,
   avatarURL: PropTypes.string,
+  avatarAlt: PropTypes.string.isRequired,
   fullHeight: PropTypes.bool,
   phrase: PropTypes.string
 }
