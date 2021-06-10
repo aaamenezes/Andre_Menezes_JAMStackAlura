@@ -78,15 +78,15 @@ export default function Project(props) {
         <Text external>{firstParagraph}</Text>
         <Image
           src={bodyImage?.url}
-          alt={bodyImage.alt}
+          alt={bodyImage?.alt}
           marginBottom='30px'
         />
         <Text external>{secondParagraph}</Text>
       </Container>
       <Container tag='section'>
         <YouTube
-          src={bodyVideo.url.replace('watch?v=', 'embed/').split('&')[0]}
-          alt={bodyVideo.title}
+          src={bodyVideo?.url.replace('watch?v=', 'embed/').split('&')[0]}
+          alt={bodyVideo?.title}
         />
       </Container>
       <Container tag='section'>
