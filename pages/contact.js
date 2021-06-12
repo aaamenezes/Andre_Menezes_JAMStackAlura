@@ -124,21 +124,17 @@ export default function Contact(props) {
           padding='10%'
         >
 
-          <Avatar
-            imageUrl={blackFirstImage.url}
-            imageAlt={blackFirstImage.alt}
-            margin='0 auto 30px'
-          />
+          <Container marginBottom='30px'>
+            <img src={blackFirstImage.url} alt={blackFirstImage.alt} />
+          </Container>
 
           <Text external>
             {blackFirstText}
           </Text>
 
-          <Avatar
-            imageUrl={blackSecondImage.url}
-            imageAlt={blackSecondImage.alt}
-            margin='0 auto 30px'
-          />
+          <Container marginBottom='30px'>
+            <img src={blackSecondImage.url} alt={blackSecondImage.alt} />
+          </Container>
 
           <Text external>
             {blackSecondText}
