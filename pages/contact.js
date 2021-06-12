@@ -8,12 +8,78 @@ import Avatar from '../src/components/common/avatar'
 import Text from '../src/components/text'
 import theme from '../src/theme'
 import GridImages from '../src/components/contact/gridImages'
-import Numbers from '../src/components/contact/numbers'
 import LinkButton from '../src/components/common/linkButton'
 import GithubRepositories from '../src/components/contact/repositories'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
+import { getContent } from '../src/utils/getContent'
 
-export default function Contact({ githubRepositories }) {
+export async function getStaticProps({ preview }) {
+  const query = `
+    query {
+      contact(locale: pt_BR) {
+        pageTitle
+        pageSubtitle
+        profilePicture {
+          url
+          alt
+        }
+        firstText
+        blackFirstImage {
+          url
+          alt
+        }
+        blackFirstText
+        blackSecondImage {
+          url
+          alt
+        }
+        blackSecondText
+        imagesGrid {
+          url
+          alt
+        }
+        githubApiUrl
+        ctaTitle
+        ctaText
+        ctaButtonText
+      }
+    }
+  `
+
+  const data = await getContent(query, preview)
+
+  const githubURL = data.contact.githubApiUrl
+
+  const githubRepositories = await fetch(githubURL)
+    .then(serverResponse => serverResponse.json())
+    .then(convertedResponse => convertedResponse)
+
+  return {
+    props: {
+      githubRepositories,
+      data
+    }
+  }
+}
+
+export default function Contact(props) {
+  const { data, githubRepositories } = props
+  const { contact } = data
+  const {
+    pageTitle,
+    pageSubtitle,
+    profilePicture,
+    firstText,
+    blackFirstImage,
+    blackFirstText,
+    blackSecondImage,
+    blackSecondText,
+    imagesGrid,
+    ctaTitle,
+    ctaText,
+    ctaButtonText
+  } = contact
+
   const [ modalDisplay, setModalDisplay ] = useState(false)
 
   return (
@@ -27,31 +93,24 @@ export default function Contact({ githubRepositories }) {
       <Container as='section'>
 
         <Title>
-          Que bom que você veio
+          {pageTitle}
         </Title>
 
-        <Avatar imageUrl='/images/avatar.jpeg' margin='0 auto' />
+        <Avatar
+          imageUrl={profilePicture.url}
+          imageAlt={profilePicture.alt}
+          margin='0 auto'
+        />
 
         <Title titleTag='h1'>
-          Sobre mim
+          {pageSubtitle}
         </Title>
       </Container>
 
       <Container as='section'>
-        {/* eslint-disable-next-line max-len */}
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, rerum. Doloremque quae provident laudantium sed quas, id aliquam adipisci tempora ex itaque qui dolor reiciendis hic velit sequi omnis molestiae.</Text>
-
-        {/* eslint-disable-next-line max-len */}
-        <Text>Laboriosam odio odit molestiae veritatis aspernatur. Odio, ratione atque expedita dolorem neque quo mollitia obcaecati molestiae excepturi repellendus voluptatibus. Cum, aperiam nobis? Mollitia excepturi ex accusantium quod pariatur, tempora sunt!</Text>
-
-        {/* eslint-disable-next-line max-len */}
-        <Text>Aliquid, eaque doloribus autem nobis voluptatem ullam officia repellendus animi magnam modi, dolor possimus molestias. Aspernatur voluptate neque debitis quas sit, sint fugit totam aperiam vero! Ab, sed? Quisquam, voluptates.</Text>
-
-        {/* eslint-disable-next-line max-len */}
-        <Text>Commodi, tempore perferendis excepturi atque distinctio sint iusto aut voluptatem assumenda, odit nesciunt asperiores eius. Eos neque dicta aut alias non soluta mollitia facere iste, minus aliquam amet sapiente autem.</Text>
-
-        {/* eslint-disable-next-line max-len */}
-        <Text>Autem culpa necessitatibus expedita reiciendis debitis totam quis vel neque vitae nemo praesentium reprehenderit voluptatem, rerum voluptate molestias, minus in? Vero ratione rem aliquam repellendus praesentium omnis eius quidem excepturi.</Text>
+        <Text external>
+          {firstText}
+        </Text>
       </Container>
 
       <Container
@@ -66,91 +125,36 @@ export default function Contact({ githubRepositories }) {
         >
 
           <Avatar
-            // eslint-disable-next-line max-len
-            imageUrl='https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U'
+            imageUrl={blackFirstImage.url}
+            imageAlt={blackFirstImage.alt}
             margin='0 auto 30px'
           />
 
-          {/* eslint-disable-next-line max-len */}
-          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, rerum. Doloremque quae provident laudantium sed quas, id aliquam adipisci tempora ex itaque qui dolor reiciendis hic velit sequi omnis molestiae.</Text>
-
-          {/* eslint-disable-next-line max-len */}
-          <Text>Laboriosam odio odit molestiae veritatis aspernatur. Odio, ratione atque expedita dolorem neque quo mollitia obcaecati molestiae excepturi repellendus voluptatibus. Cum, aperiam nobis? Mollitia excepturi ex accusantium quod pariatur, tempora sunt!</Text>
+          <Text external>
+            {blackFirstText}
+          </Text>
 
           <Avatar
-            // eslint-disable-next-line max-len
-            imageUrl='https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U'
+            imageUrl={blackSecondImage.url}
+            imageAlt={blackSecondImage.alt}
             margin='0 auto 30px'
           />
 
-          {/* eslint-disable-next-line max-len */}
-          <Text>Aliquid, eaque doloribus autem nobis voluptatem ullam officia repellendus animi magnam modi, dolor possimus molestias. Aspernatur voluptate neque debitis quas sit, sint fugit totam aperiam vero! Ab, sed? Quisquam, voluptates.</Text>
-
-          {/* eslint-disable-next-line max-len */}
-          <Text>Commodi, tempore perferendis excepturi atque distinctio sint iusto aut voluptatem assumenda, odit nesciunt asperiores eius. Eos neque dicta aut alias non soluta mollitia facere iste, minus aliquam amet sapiente autem.</Text>
-
-          {/* eslint-disable-next-line max-len */}
-          <Text>Autem culpa necessitatibus expedita reiciendis debitis totam quis vel neque vitae nemo praesentium reprehenderit voluptatem, rerum voluptate molestias, minus in? Vero ratione rem aliquam repellendus praesentium omnis eius quidem excepturi.</Text>
+          <Text external>
+            {blackSecondText}
+          </Text>
         </Container>
       </Container>
 
       <Container as='section'>
-        <GridImages
-          images={[
-            {
-              // eslint-disable-next-line max-len
-              url: 'https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U',
-              alt: 'Alt imagem 1'
-            },
-            {
-              // eslint-disable-next-line max-len
-              url: 'https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U',
-              alt: 'Alt imagem 2'
-            },
-            {
-              // eslint-disable-next-line max-len
-              url: 'https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U',
-              alt: 'Alt imagem 3'
-            },
-            {
-              // eslint-disable-next-line max-len
-              url: 'https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U',
-              alt: 'Alt imagem 4'
-            },
-            {
-              // eslint-disable-next-line max-len
-              url: 'https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U',
-              alt: 'Alt imagem 5'
-            },
-            {
-              // eslint-disable-next-line max-len
-              url: 'https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U',
-              alt: 'Alt imagem 6'
-            },
-            {
-              // eslint-disable-next-line max-len
-              url: 'https://i.picsum.photos/id/719/600/600.jpg?hmac=1q45aclFnkzu-iEnjJamWFQ4fN_5zwz1d1uguTvmr9U',
-              alt: 'Alt imagem 7'
-            }
-          ]}
-        />
-      </Container>
-
-      <Container as='section'>
-        <Numbers number='5' text='Projetos em ReactJS' />
-        <Numbers number='+10' text='Palestras' />
-        <Numbers number='+30' text='Contribuições para projetos opensource' />
+        <GridImages images={imagesGrid} />
       </Container>
 
       <GithubRepositories githubRepositories={githubRepositories} />
 
       <Container as='section'>
-        <Title>Entre em contato</Title>
-        {/* eslint-disable-next-line max-len */}
-        <Text>Commodi, tempore perferendis excepturi atque distinctio sint iusto aut voluptatem assumenda, odit nesciunt asperiores eius. Eos neque dicta aut alias non soluta mollitia facere iste, minus aliquam amet sapiente autem.</Text>
-
-        {/* eslint-disable-next-line max-len */}
-        <Text>Autem culpa necessitatibus expedita reiciendis debitis totam quis vel neque vitae nemo praesentium reprehenderit voluptatem, rerum voluptate molestias, minus in? Vero ratione rem aliquam repellendus praesentium omnis eius quidem excepturi.</Text>
+        <Title>{ctaTitle}</Title>
+        <Text external>{ctaText}</Text>
 
         <LinkButton
           variant='primary'
@@ -159,7 +163,7 @@ export default function Contact({ githubRepositories }) {
           margin='auto auto 30px'
           handleClick={setModalDisplay}
         >
-          Fazer contato
+          {ctaButtonText}
         </LinkButton>
 
       </Container>
@@ -180,13 +184,6 @@ export default function Contact({ githubRepositories }) {
 }
 
 Contact.propTypes = {
-  githubRepositories: PropTypes.arrayOf(PropTypes.object).isRequired
-}
-
-export async function getStaticProps() {
-  const githubURL = 'https://api.github.com/users/aaamenezes/repos'
-  const githubRepositories = await fetch(githubURL)
-    .then(serverResponse => serverResponse.json())
-    .then(convertedResponse => convertedResponse)
-  return { props: { githubRepositories } }
+  githubRepositories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: PropTypes.objectOf(PropTypes.objectOf).isRequired
 }
