@@ -1,9 +1,32 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Container from '../src/components/common/container'
 import Text from '../src/components/text'
-import LinkButton from '../src/components/common/linkButton'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
+import { getContent } from '../src/utils/getContent'
+import Title from '../src/components/title'
+
+export async function getStaticProps({ preview }) {
+  const query = `
+    query {
+      erro404(locale: pt_BR) {
+        pageTitle
+        pageDescription
+        funnyIframe
+        iframeTitle
+      }
+    }
+  `
+
+  const data = await getContent(query, preview)
+
+  return {
+    props: {
+      data
+    }
+  }
+}
 
 const Iframe = styled.iframe`
   border: 0;
@@ -11,7 +34,12 @@ const Iframe = styled.iframe`
   height: 90vh;
 `
 
-export default function Page404() {
+export default function Page404(props) {
+  const { data } = props
+  const { erro404 } = data
+
+  const { pageTitle, pageDescription, funnyIframe, iframeTitle } = erro404
+
   return (
     <PageWrapper
       seoProps={{
@@ -21,27 +49,25 @@ export default function Page404() {
       footer
     >
       <Container tag='section' padding='5% 10%'>
-        <Text>Página não encontrada... :/</Text>
-        <Text>
-          Enquanto isso, se diverta no nosso gerador de cores aleatórias:
+        <Title titleTag='h1'>
+          {pageTitle}
+        </Title>
+        <Text external>
+          {pageDescription}
         </Text>
-        <Text>
-          Use a tela abaixo, ou acesse
-          {' '}
-          <LinkButton
-            href='https://codepen.io/aaamenezes/full/GRrqYxz'
-            external
-            inline
-          >
-            diretamente aqui
-          </LinkButton>
-          .
-        </Text>
-        <Iframe
-          src='https://codepen.io/aaamenezes/full/GRrqYxz'
-          title='Gerador de cores aleatórias via CodePen'
-        />
+        {
+          funnyIframe && (
+            <Iframe
+              src={funnyIframe}
+              title={iframeTitle || 'Iframe'}
+            />
+          )
+        }
       </Container>
     </PageWrapper>
   )
+}
+
+Page404.propTypes = {
+  data: PropTypes.objectOf(PropTypes.objectOf).isRequired
 }
