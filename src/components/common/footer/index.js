@@ -1,9 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Container from '../container'
 import Icon from '../icon'
 import LinkButton from '../linkButton'
 
-export default function Footer() {
+export default function Footer({ socialMediaLinks }) {
+  const linksElements = socialMediaLinks.split('---').map(link => {
+    const socialLink = link.split(': ')[1]
+    const socialName = link.split(': ')[0].toLowerCase().trim()
+
+    return (
+      <LinkButton href={socialLink} external>
+        <Icon name={socialName} />
+      </LinkButton>
+    )
+  })
   return (
     <Container
       tag='footer'
@@ -22,15 +33,11 @@ export default function Footer() {
       }}
       backgroundColor='transparent'
     >
-      <LinkButton href='https://github.com/aaamenezes' external>
-        <Icon name='github' />
-      </LinkButton>
-      <LinkButton href='https://twitter.com/aaamenezes' external>
-        <Icon name='twitter' />
-      </LinkButton>
-      <LinkButton href='https://aaamenezes.medium.com/' external>
-        <Icon name='medium' />
-      </LinkButton>
+      {linksElements}
     </Container>
   )
+}
+
+Footer.propTypes = {
+  socialMediaLinks: PropTypes.string.isRequired
 }

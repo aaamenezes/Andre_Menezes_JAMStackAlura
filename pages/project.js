@@ -9,32 +9,10 @@ import YouTube from '../src/components/common/youtube'
 import Swiper from '../src/components/common/swiper'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
+import { projectQuery } from '../src/infra/queries/projectQuery'
 
 export async function getStaticProps({ preview }) {
-  const query = `
-    query {
-      project {
-        coverImage(locale: pt_BR) {
-          url
-          alt
-        }
-        phrase
-        projectTitle
-        firstParagraph
-        bodyImage(locale: pt_BR) {
-          url
-          alt
-        }
-        secondParagraph
-        bodyVideo {
-          title
-          url
-        }
-      }
-    }
-  `
-
-  const data = await getContent(query, preview)
+  const data = await getContent(projectQuery, preview)
 
   return {
     props: {
@@ -45,7 +23,8 @@ export async function getStaticProps({ preview }) {
 
 export default function Project(props) {
   const { data } = props
-  const { project } = data
+  const { project, social } = data
+  const { socialMediaLinks } = social
 
   const {
     coverImage,
@@ -64,6 +43,7 @@ export default function Project(props) {
       }}
       header
       footer
+      socialMediaLinks={socialMediaLinks}
     >
       <Hero
         imageURL={coverImage.url}

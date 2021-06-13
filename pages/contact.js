@@ -12,45 +12,14 @@ import LinkButton from '../src/components/common/linkButton'
 import GithubRepositories from '../src/components/contact/repositories'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
+import { contactQuery } from '../src/infra/queries/contactQuery'
 
 export async function getStaticProps({ preview }) {
-  const query = `
-    query {
-      contact(locale: pt_BR) {
-        pageTitle
-        pageSubtitle
-        profilePicture {
-          url
-          alt
-        }
-        firstText
-        blackFirstImage {
-          url
-          alt
-        }
-        blackFirstText
-        blackSecondImage {
-          url
-          alt
-        }
-        blackSecondText
-        imagesGrid {
-          url
-          alt
-        }
-        githubApiUrl
-        ctaTitle
-        ctaText
-        ctaButtonText
-      }
-    }
-  `
+  const data = await getContent(contactQuery, preview)
 
-  const data = await getContent(query, preview)
+  const { githubApiUrl } = data.contact
 
-  const githubURL = data.contact.githubApiUrl
-
-  const githubRepositories = await fetch(githubURL)
+  const githubRepositories = await fetch(githubApiUrl)
     .then(serverResponse => serverResponse.json())
     .then(convertedResponse => convertedResponse)
 
@@ -64,7 +33,8 @@ export async function getStaticProps({ preview }) {
 
 export default function Contact(props) {
   const { data, githubRepositories } = props
-  const { contact } = data
+  const { contact, social } = data
+  const { socialMediaLinks } = social
   const {
     pageTitle,
     pageSubtitle,
@@ -89,6 +59,7 @@ export default function Contact(props) {
       }}
       header
       footer
+      socialMediaLinks={socialMediaLinks}
     >
       <Container as='section'>
 

@@ -5,26 +5,10 @@ import Container from '../src/components/common/container'
 import Title from '../src/components/title'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
+import { homeQuery } from '../src/infra/queries/homeQuery'
 
 export async function getStaticProps({ preview }) {
-  const query = `
-    query {
-      home(locale: pt_BR) {
-        coverPicture {
-          url
-          alt
-        }
-        profilePicture {
-          url
-          alt
-        }
-        portfolioName
-        portfolioOwner
-      }
-    }
-  `
-
-  const data = await getContent(query, preview)
+  const data = await getContent(homeQuery, preview)
 
   return {
     props: {
@@ -35,7 +19,8 @@ export async function getStaticProps({ preview }) {
 
 export default function Home(props) {
   const { data } = props
-  const { home } = data
+  const { home, social } = data
+  const { socialMediaLinks } = social
 
   const { coverPicture, portfolioName, portfolioOwner, profilePicture } = home
 
@@ -46,6 +31,7 @@ export default function Home(props) {
       }}
       header
       footer
+      socialMediaLinks={socialMediaLinks}
     >
       <Hero
         imageURL={coverPicture.url}
