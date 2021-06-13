@@ -5,28 +5,10 @@ import Container from '../src/components/common/container'
 import Title from '../src/components/title'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
-import { socialQuery } from '../src/infra/queries/socialQuery'
+import { homeQuery } from '../src/infra/queries/homeQuery'
 
 export async function getStaticProps({ preview }) {
-  const query = `
-    query {
-      home(locale: pt_BR) {
-        coverPicture {
-          url
-          alt
-        }
-        profilePicture {
-          url
-          alt
-        }
-        portfolioName
-        portfolioOwner
-      }
-      ${ socialQuery }
-    }
-  `
-
-  const data = await getContent(query, preview)
+  const data = await getContent(homeQuery, preview)
 
   return {
     props: {

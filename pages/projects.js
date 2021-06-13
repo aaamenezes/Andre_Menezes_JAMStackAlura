@@ -6,28 +6,10 @@ import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
 import Title from '../src/components/title'
 import Text from '../src/components/text'
-import { socialQuery } from '../src/infra/queries/socialQuery'
+import { projectsQuery } from '../src/infra/queries/projectsQuery'
 
 export async function getStaticProps({ preview }) {
-  const query = `
-    query {
-      projectsPage(locale: pt_BR) {
-        pageTitle
-        pageDescription
-      }
-      allProjects {
-        coverImage {
-          url
-          alt
-        }
-        projectTitle
-        url
-      }
-      ${ socialQuery }
-    }
-  `
-
-  const data = await getContent(query, preview)
+  const data = await getContent(projectsQuery, preview)
 
   return {
     props: {

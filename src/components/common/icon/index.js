@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const IconStyled = styled.i`
@@ -38,4 +39,13 @@ export default function Icon({ name, inline }) {
   default:
     return <IconStyled className='fas fa-question-circle' />
   }
+}
+
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
+  inline: PropTypes.bool
+}
+
+Icon.defaultProps = {
+  inline: false
 }

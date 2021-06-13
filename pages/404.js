@@ -6,22 +6,10 @@ import Text from '../src/components/text'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
 import Title from '../src/components/title'
-import { socialQuery } from '../src/infra/queries/socialQuery'
+import { error404Query } from '../src/infra/queries/404Query'
 
 export async function getStaticProps({ preview }) {
-  const query = `
-    query {
-      erro404(locale: pt_BR) {
-        pageTitle
-        pageDescription
-        funnyIframe
-        iframeTitle
-      }
-      ${ socialQuery }
-    }
-  `
-
-  const data = await getContent(query, preview)
+  const data = await getContent(error404Query, preview)
 
   return {
     props: {

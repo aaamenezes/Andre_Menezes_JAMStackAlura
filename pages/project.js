@@ -9,34 +9,10 @@ import YouTube from '../src/components/common/youtube'
 import Swiper from '../src/components/common/swiper'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
-import { socialQuery } from '../src/infra/queries/socialQuery'
+import { projectQuery } from '../src/infra/queries/projectQuery'
 
 export async function getStaticProps({ preview }) {
-  const query = `
-    query {
-      project(filter: {id: {eq: 41451192}} ) {
-        coverImage(locale: pt_BR) {
-          url
-          alt
-        }
-        phrase
-        projectTitle
-        firstParagraph
-        bodyImage(locale: pt_BR) {
-          url
-          alt
-        }
-        secondParagraph
-        bodyVideo {
-          title
-          url
-        }
-      }
-      ${ socialQuery }
-    }
-  `
-
-  const data = await getContent(query, preview)
+  const data = await getContent(projectQuery, preview)
 
   return {
     props: {
@@ -46,7 +22,6 @@ export async function getStaticProps({ preview }) {
 }
 
 export default function Project(props) {
-  console.log('props', props)
   const { data } = props
   const { project, social } = data
   const { socialMediaLinks } = social
