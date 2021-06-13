@@ -5,6 +5,7 @@ import Container from '../src/components/common/container'
 import Title from '../src/components/title'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
+import { socialQuery } from '../src/infra/queries/socialQuery'
 
 export async function getStaticProps({ preview }) {
   const query = `
@@ -21,6 +22,7 @@ export async function getStaticProps({ preview }) {
         portfolioName
         portfolioOwner
       }
+      ${ socialQuery }
     }
   `
 
@@ -35,7 +37,8 @@ export async function getStaticProps({ preview }) {
 
 export default function Home(props) {
   const { data } = props
-  const { home } = data
+  const { home, social } = data
+  const { socialMediaLinks } = social
 
   const { coverPicture, portfolioName, portfolioOwner, profilePicture } = home
 
@@ -46,6 +49,7 @@ export default function Home(props) {
       }}
       header
       footer
+      socialMediaLinks={socialMediaLinks}
     >
       <Hero
         imageURL={coverPicture.url}

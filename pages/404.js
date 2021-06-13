@@ -6,6 +6,7 @@ import Text from '../src/components/text'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
 import Title from '../src/components/title'
+import { socialQuery } from '../src/infra/queries/socialQuery'
 
 export async function getStaticProps({ preview }) {
   const query = `
@@ -16,6 +17,7 @@ export async function getStaticProps({ preview }) {
         funnyIframe
         iframeTitle
       }
+      ${ socialQuery }
     }
   `
 
@@ -36,7 +38,8 @@ const Iframe = styled.iframe`
 
 export default function Page404(props) {
   const { data } = props
-  const { erro404 } = data
+  const { erro404, social } = data
+  const { socialMediaLinks } = social
 
   const { pageTitle, pageDescription, funnyIframe, iframeTitle } = erro404
 
@@ -47,6 +50,7 @@ export default function Page404(props) {
       }}
       header
       footer
+      socialMediaLinks={socialMediaLinks}
     >
       <Container tag='section' padding='5% 10%'>
         <Title titleTag='h1'>

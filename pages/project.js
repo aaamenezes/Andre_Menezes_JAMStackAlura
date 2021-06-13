@@ -9,11 +9,12 @@ import YouTube from '../src/components/common/youtube'
 import Swiper from '../src/components/common/swiper'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
+import { socialQuery } from '../src/infra/queries/socialQuery'
 
 export async function getStaticProps({ preview }) {
   const query = `
     query {
-      project {
+      project(filter: {id: {eq: 41451192}} ) {
         coverImage(locale: pt_BR) {
           url
           alt
@@ -31,6 +32,7 @@ export async function getStaticProps({ preview }) {
           url
         }
       }
+      ${ socialQuery }
     }
   `
 
@@ -44,8 +46,10 @@ export async function getStaticProps({ preview }) {
 }
 
 export default function Project(props) {
+  console.log('props', props)
   const { data } = props
-  const { project } = data
+  const { project, social } = data
+  const { socialMediaLinks } = social
 
   const {
     coverImage,
@@ -64,6 +68,7 @@ export default function Project(props) {
       }}
       header
       footer
+      socialMediaLinks={socialMediaLinks}
     >
       <Hero
         imageURL={coverImage.url}

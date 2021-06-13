@@ -31,9 +31,11 @@ export default function Icon({ name, inline }) {
     return <IconStyled className='fab fa-twitter' />
   case 'medium':
     return <IconStyled className='fab fa-medium' />
+  case 'linkedin':
+    return <IconStyled className='fab fa-linkedin' />
   case 'external':
     return <IconStyled className='fas fa-external-link-alt' inline={inline} />
   default:
-    return undefined
+    return <IconStyled className='fas fa-question-circle' />
   }
 }

@@ -5,7 +5,13 @@ import Main from '../../common/main'
 import Footer from '../../common/footer'
 import SEO from '../../../seo'
 
-export default function PageWrapper({ seoProps, header, footer, children }) {
+export default function PageWrapper({
+  seoProps,
+  header,
+  footer,
+  socialMediaLinks,
+  children
+}) {
   return (
     <>
       <SEO {...seoProps} />
@@ -13,7 +19,7 @@ export default function PageWrapper({ seoProps, header, footer, children }) {
       <Main padding='0'>
         {children}
       </Main>
-      {footer && <Footer />}
+      {footer && <Footer socialMediaLinks={socialMediaLinks} />}
     </>
   )
 }
@@ -24,6 +30,7 @@ PageWrapper.propTypes = {
   }).isRequired,
   header: PropTypes.bool,
   footer: PropTypes.bool,
+  socialMediaLinks: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired
 }
 

@@ -6,6 +6,7 @@ import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
 import Title from '../src/components/title'
 import Text from '../src/components/text'
+import { socialQuery } from '../src/infra/queries/socialQuery'
 
 export async function getStaticProps({ preview }) {
   const query = `
@@ -22,6 +23,7 @@ export async function getStaticProps({ preview }) {
         projectTitle
         url
       }
+      ${ socialQuery }
     }
   `
 
@@ -36,8 +38,8 @@ export async function getStaticProps({ preview }) {
 
 export default function Projects(props) {
   const { data } = props
-  const { projectsPage, allProjects } = data
-
+  const { projectsPage, allProjects, social } = data
+  const { socialMediaLinks } = social
   const { pageTitle, pageDescription } = projectsPage
 
   return (
@@ -47,6 +49,7 @@ export default function Projects(props) {
       }}
       header
       footer
+      socialMediaLinks={socialMediaLinks}
     >
       <Container tag='section'>
         <Title titleTag='h1'>

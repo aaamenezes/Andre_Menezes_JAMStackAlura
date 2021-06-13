@@ -12,6 +12,7 @@ import LinkButton from '../src/components/common/linkButton'
 import GithubRepositories from '../src/components/contact/repositories'
 import PageWrapper from '../src/components/wrappers/pageWrapper'
 import { getContent } from '../src/utils/getContent'
+import { socialQuery } from '../src/infra/queries/socialQuery'
 
 export async function getStaticProps({ preview }) {
   const query = `
@@ -43,6 +44,7 @@ export async function getStaticProps({ preview }) {
         ctaText
         ctaButtonText
       }
+      ${ socialQuery }
     }
   `
 
@@ -64,7 +66,8 @@ export async function getStaticProps({ preview }) {
 
 export default function Contact(props) {
   const { data, githubRepositories } = props
-  const { contact } = data
+  const { contact, social } = data
+  const { socialMediaLinks } = social
   const {
     pageTitle,
     pageSubtitle,
@@ -89,6 +92,7 @@ export default function Contact(props) {
       }}
       header
       footer
+      socialMediaLinks={socialMediaLinks}
     >
       <Container as='section'>
 
