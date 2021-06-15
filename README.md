@@ -64,7 +64,13 @@ Você pode acessar o projeto através dessa URL: [PortFront](https://portfront.v
 git clone https://github.com/aaamenezes/Andre_Menezes_JAMStackAlura.git
 ```
 
-2. Instale as dependências:
+2. Acesse a pasta do projeto:
+
+```
+cd Andre_Menezes_JAMStackAlura
+```
+
+3. Instale as dependências:
 
 ```
 npm i
@@ -76,7 +82,7 @@ Ou:
 yarn
 ```
 
-3. Inicie o projeto:
+4. Inicie o projeto:
 
 ```
 npm run dev
