@@ -10,7 +10,7 @@ export default function Footer({ socialMediaLinks }) {
     const socialName = link.split(': ')[0].toLowerCase().trim()
 
     return (
-      <LinkButton href={socialLink} external>
+      <LinkButton href={socialLink} external key={socialName}>
         <Icon name={socialName} />
       </LinkButton>
     )
