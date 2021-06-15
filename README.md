@@ -146,7 +146,13 @@ Você pode acessar o projeto através dessa URL:
 git clone ...
 ```
 
-2. Instale as dependências:
+2. Acesse a pasta do projeto
+
+```
+cd 
+```
+
+3. Instale as dependências:
 
 ```
 npm i
@@ -158,7 +164,7 @@ Ou:
 yarn
 ```
 
-3. Inicie o projeto:
+4. Inicie o projeto:
 
 ```
 npm run dev
