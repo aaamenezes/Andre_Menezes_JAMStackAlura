@@ -1,3 +1,191 @@
+# PortFront: Portfolio de projetos de desenvolvimento front-end
+
+## Descrição
+
+O PortFront é um portfolio de projetos.
+
+Ele foi desenvolvido durante o Bootcamp Front-end JamStack da Alura.
+
+## Tecnologias utilizadas
+
+As principais tecnologias utilizadas foram React.JS, Styled Componentes e Next.JS, com muito foco em desempenho e SEO.
+
+Os dados cadastrados no portfólio foram importados via API do DatoCMS, que utiliza GraphQL.
+
+Também foram realizados testes no front-end utilizando Cypress, Jest e React Testing Library.
+
+O ESLint foi utilizado para padronizar o código escrito.
+
+## Referências
+
+A identidade visual foi totalmente baseada no estilo site Dribbble.
+
+As páginas construídas foram:
+
+### Home (`/`)
+
+Página inicial com imagem de capa, perfil e nome do dono do portfólio.
+
+### Projetos (`/projects`)
+
+Página de listagem de projetos.
+
+### Projeto de exemplo (`/project`)
+
+Página de exibição de um projeto.
+
+Contém:
+
+- Texto
+- Imagens
+- Vídeo
+- Slider com outros projetos (feito com o Swiper)
+
+### Contato (`/contact`)
+
+Informações sobre o dono do portfólio.
+
+Contém:
+
+- Texto
+- Grid de imagens
+- Listagem de portfólios do Github (carregado via API)
+- E formulário de contato
+
+## Projeto no ar
+
+Você pode acessar o projeto através dessa URL: [PortFront](https://portfront.vercel.app/)
+
+## Como rodar esse projeto em seu computador
+
+1. Faça um clone do projeto em seu computador:
+
+```
+git clone https://github.com/aaamenezes/Andre_Menezes_JAMStackAlura.git
+```
+
+2. Instale as dependências:
+
+```
+npm i
+```
+
+Ou:
+
+```
+yarn
+```
+
+3. Inicie o projeto:
+
+```
+npm run dev
+```
+
+Ou: 
+
+```
+yarn dev
+```
+
+## Licença
+
+Não se aplica
+
+
+
+
+
+
+
+
+<!--
+# [nome do projeto]
+
+## Descrição
+
+- O que é
+- O que faz
+- Objetivo do projeto
+- Requisitos para estar pronto
+- Requisitos bônus
+
+## Tecnologias utilizadas
+
+- Linguagens
+- Pré-processador
+- Frameworks
+- Servidor
+- Backend
+- API
+- CMS headless
+
+## Referências
+
+- Identidade visual
+- Recursos
+- Publicação
+
+## Projeto no ar
+
+Você pode acessar o projeto através dessa URL:
+
+[nome_do_projeto]()
+
+## Como rodar esse projeto em seu computador
+
+1. Faça um clone do projeto em seu computador:
+
+```
+git clone ...
+```
+
+2. Instale as dependências:
+
+```
+npm i
+```
+
+Ou:
+
+```
+yarn
+```
+
+3. Inicie o projeto:
+
+```
+npm run dev
+```
+
+Ou: 
+
+```
+yarn dev
+```
+
+## Licença
+
+Não se aplica
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
 # Example app with styled-components
 
 This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
@@ -76,3 +264,5 @@ export default () => (
 ```
 
 </details>
+
+-->
