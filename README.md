@@ -94,10 +94,6 @@ Ou:
 yarn dev
 ```
 
-## Licença
-
-Não se aplica
-
 
 
 
@@ -175,10 +171,6 @@ Ou:
 ```
 yarn dev
 ```
-
-## Licença
-
-Não se aplica
 
 -->
 
