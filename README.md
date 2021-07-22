@@ -130,9 +130,7 @@ yarn dev
 
 ## Projeto no ar
 
-Você pode acessar o projeto através dessa URL:
-
-[nome_do_projeto]()
+Você pode acessar o projeto [nome_do_projeto](URL_DA_LOJA) rodando em produção na [VERCEL?].
 
 ## Como rodar esse projeto em seu computador
 
